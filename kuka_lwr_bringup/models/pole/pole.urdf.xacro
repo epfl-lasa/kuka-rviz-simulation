@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<robot name="pole"
+       xmlns:xi="http://www.w3.org/2001/XInclude"
+       xmlns:gazebo="http://playerstage.sourceforge.net/gazebo/xmlschema/#gz"
+       xmlns:model="http://playerstage.sourceforge.net/gazebo/xmlschema/#model"
+       xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:body="http://playerstage.sourceforge.net/gazebo/xmlschema/#body"
+       xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom"
+       xmlns:joint="http://playerstage.sourceforge.net/gazebo/xmlschema/#joint"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:rendering="http://playerstage.sourceforge.net/gazebo/xmlschema/#rendering"
+       xmlns:renderable="http://playerstage.sourceforge.net/gazebo/xmlschema/#renderable"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:physics="http://playerstage.sourceforge.net/gazebo/xmlschema/#physics">
+
+  <property name="pole_height" value="1.170" />
+  <property name="pole_width"  value="0.35" />
+  <property name="pole_depth"  value="0.35" />
+  <property name="pole_radius" value="0.02" />
+  <property name="pole_x"      value="0.0" />
+  <property name="pole_y"      value="0.0" />
+  <property name="pole_z"      value="0.0" />
+
+  <property name="pole_base_thickness" value="0.05"/>
+
+  <property name="pole_base_color" value="0 0 0 1" />
+  <property name="pole_color" value="100 100 100 1" />
+
+  <property name="M_PI" value="3.1415926535897931" />
+
+
+  <link name="pole_base_link">
+    <inertial>
+      <mass value="1.0" />
+      <origin xyz="${pole_x} ${pole_y} ${pole_z}" />
+      <inertia ixx="1" ixy="0"  ixz="0"
+               iyy="1" iyz="0"
+               izz="1" />
+    </inertial> 
+    <visual>
+      <origin xyz="${pole_x} ${pole_y} ${pole_z}" />
+      <geometry>
+        <box size="${pole_width} ${pole_depth} ${pole_base_thickness}" />
+      </geometry>
+      <material name="pole_base_blue">
+        <color rgba="${pole_base_color}"/>
+      </material>
+    </visual> 
+    <collision>
+      <origin xyz="${pole_x} ${pole_y} ${pole_z}" />
+      <geometry>
+        <box size="${pole_width} ${pole_depth} ${pole_base_thickness}" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="pole_base_link">
+    <material>Gazebo/LightWood</material>
+    <mu1>50.0</mu1>
+    <mu2>50.0</mu2>
+    <kp>1000000.0</kp>
+    <kd>1.0</kd>
+  </gazebo>
+
+  <joint name="pole_joint" type="fixed" >
+    <parent link="pole_base_link" />
+    <origin xyz="0 0 ${pole_base_thickness}" rpy="0 0 0" />
+    <child link="pole_link" />
+  </joint> 
+  <link name="pole_link">
+    <inertial>
+      <mass value="1.0" />
+      <origin xyz="0 0 ${-pole_height/2}" />
+      <inertia ixx="0.1" ixy="0"  ixz="0"
+               iyy="0.1" iyz="0"
+               izz="0.01" />
+    </inertial> 
+    <visual>
+      <origin xyz="0.0 0.0 ${+pole_height/2-pole_base_thickness}" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="${pole_radius}" length="${pole_height-pole_base_thickness}" />
+      </geometry>
+      <material name="pole_blue">
+        <color rgba="${pole_color}"/>
+      </material>
+    </visual> 
+    <collision>
+      <origin xyz="0.0 0.0 ${+pole_height/2-pole_base_thickness}" rpy="0.0 0.0 0.0" />
+      <geometry>
+        <cylinder radius="${pole_radius}" length="${pole_height-pole_base_thickness}" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="pole_link">
+    <material>Gazebo/Gray</material>
+    <mu1>1000.0</mu1>
+    <mu2>1000.0</mu2>
+    <kp>10000000.0</kp>
+    <kd>1.0</kd>
+    <selfCollide>true</selfCollide>
+  </gazebo>
+ 
+</robot>

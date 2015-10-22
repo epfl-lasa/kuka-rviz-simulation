@@ -1,0 +1,24 @@
+Kinect-Robot Calibration Steps:
+
+-> Run Robot Mirror
+rosrun rtk_mirror run_lwr.sh
+
+-> Bringup LWR Visualization
+roslaunch lwr_bringup lwr_sim.launch
+
+-> Upload World and Target Transforms
+roslaunch lwr_bringup upload_frames4calibration.launch
+
+-> Start Camera
+roslaunch industrial_extrinsic_cal camera.launch
+
+-> Run Calibration
+roslaunch industrial_extrinsic_cal calibration_service.launch
+rosservice call /calibration_service
+
+-> View Stuff
+rosrun rviz rviz
+rosrun image_view image_view image:=/ns1_kinect/rgb/image_rect_color
+
+-> To repeat rosbag plays
+while true; do rosbag play 2014-11-28-00-00-43.bag ; sleep 1; done

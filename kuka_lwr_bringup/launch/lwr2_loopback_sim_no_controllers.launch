@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<launch>
+
+  <arg name="default-starting-config" default="0"/>
+
+  <!-- some global variable -->
+  <param name="/use_sim_time" value="false"/>
+
+  <!-- load up urdf to the parameter server -->
+  <include file="$(find kuka_lwr_bringup)/launch/upload_lwr2.launch"/>
+
+   
+</launch>

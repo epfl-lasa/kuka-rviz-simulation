@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<launch>
+  <arg name="urdf-name" default="kuka_lwr_lasa.urdf.xacro"/>
+  <arg name="urdf-path" default="$(find kuka_lwr_description)/robots/$(arg urdf-name)"/>
+
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(arg urdf-path)'" />
+</launch>

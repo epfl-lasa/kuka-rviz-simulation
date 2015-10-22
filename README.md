@@ -1,6 +1,7 @@
 # KUKA LWR @LASA Simulation 
 This package runs a simulation of the KUKA LWR robot in the LASA lab (EPFL) with the velocity/position controllers provided the IAI lab (Uni Bremen).
 
+![alt tag](https://cloud.githubusercontent.com/assets/761512/10678185/08057796-7911-11e5-8641-896615534612.png)
 
 In order to run this code, install the following packages beforehand:
  

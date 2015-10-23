@@ -26,6 +26,8 @@ $ rosrun rviz rviz
 
 This simulation "emulates" a joint velocity controller in ROS. You can send it joint velocity/stiffness commands and it will follow suit. No dynamics or physics simulation is included. This can be used to test code and trajectories before going on to the real robot.
 
+An example of it being used in simulation is provided in the [task_motion_planning_cds](https://github.com/nbfigueroa/task_motion_planning_cds) package.
+
 In order to **visualize** the KUKA LWR robot in realtime you will need to install the robot-toolkit package:
 ```
 $ git clone https://github.com/epfl-lasa/robot-toolkit.git

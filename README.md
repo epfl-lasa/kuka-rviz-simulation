@@ -1,8 +1,6 @@
 # KUKA LWR @LASA Simulation 
 This package runs a simulation of the KUKA LWR robot in the LASA lab (EPFL) with the velocity/position controllers provided the IAI lab (Uni Bremen).
 
-![alt tag](https://cloud.githubusercontent.com/assets/761512/10678185/08057796-7911-11e5-8641-896615534612.png)
-
 In order to run this code, install the following packages beforehand:
  
 ```
@@ -23,6 +21,15 @@ In order to **simulate** the KUKA LWR robot in the LASA lab with velocity contro
 $ roslaunch kuka_lwr_bringup lwr_simulation_viz.launch
 $ rosrun rviz rviz
 ```
+
+Once in rviz, 
+ 1. Add a plugin of type RobotModel
+ 2. Add the TF plugin
+
+If everything goes well, you should see something like this:
+
+![alt tag](https://cloud.githubusercontent.com/assets/761512/10678185/08057796-7911-11e5-8641-896615534612.png)
+
 
 This simulation "emulates" a joint velocity controller in ROS. You can send it joint velocity/stiffness commands and it will follow suit. No dynamics or physics simulation is included. This can be used to test code and trajectories before going on to the real robot.
 

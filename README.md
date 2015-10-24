@@ -31,7 +31,14 @@ If everything goes well, you should see something like this:
 ![alt tag](https://cloud.githubusercontent.com/assets/761512/10678185/08057796-7911-11e5-8641-896615534612.png)
 
 
-This simulation "emulates" a joint velocity controller in ROS. You can send it joint velocity/stiffness commands and it will follow suit. No dynamics or physics simulation is included. This can be used to test code and trajectories before going on to the real robot.
+This simulation offers a joint velocity/position-resolved controller in ROS. You can send it joint velocity/stiffness or position/stiffness commands and it will follow suit. No dynamics or physics simulation is included. This can be used to test code and trajectories before going on to the real robot.
+
+To test the simulation, you can manually move the robot like so:
+
+```
+rostopic pub -r 20 /KUKA/joint_cmd sensor_msgs/JointState '{velocity: [0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], stiffness: [200.0, 200.0, 200.0, 200.0, 200.0, 200.0, 200.0]}'
+```
+Here you are commanding the first joint with a velocity of 0.1rad/s and setting stiffness values for all joint at 200Nm/rad.
 
 An example of it being used in simulation is provided in the [task_motion_planning_cds](https://github.com/nbfigueroa/task_motion_planning_cds) package.
 
@@ -45,11 +52,11 @@ If you are using [Nadia's kuka_interface_packages](https://github.com/nbfigueroa
 
 ```
 $ roslaunch kuka_lwr_bringup lwr_realtime_viz.launch
-$ rosrun rtk_mirror run_lwr.sh
+$ rosrun kuka_fri_bridge run_lwr.sh
 $ rosrun rviz rviz
 ```
 
-If you are using the epfl-lasa standard interface packages (lwr_interface and fri-library-ros) you can just run robot_mirror and rviz as follows:
+If you are using the epfl-lasa standard interface packages ([lwr_interface](https://github.com/epfl-lasa/lwr-interface) and [fri-library-ros](https://github.com/epfl-lasa/fri-library-ros)) you can just run robot_mirror and rviz as follows:
 
 ```
 $ roslaunch kuka_lwr_bringup lwr_realtime_viz.launch

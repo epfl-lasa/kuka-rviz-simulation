@@ -38,7 +38,7 @@ To test the simulation, you can manually move the robot like so:
 ```
 rostopic pub -r 20 /KUKA/joint_cmd sensor_msgs/JointState '{velocity: [0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], stiffness: [200.0, 200.0, 200.0, 200.0, 200.0, 200.0, 200.0]}'
 ```
-Here you are commanding the first joint with a velocity of 0.1rad/s and setting stiffness values for all joint at 200Nm/rad.
+Here you are commanding the first joint with a velocity of 0.5rad/s and setting stiffness values for all joint at 200Nm/rad.
 
 An example of it being used in simulation is provided in the [task_motion_planning_cds](https://github.com/nbfigueroa/task_motion_planning_cds) package.
 

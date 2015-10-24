@@ -41,7 +41,7 @@ rostopic pub -r 20 /r_arm_vel/command iai_control_msgs/MultiJointVelocityImpedan
 ```
 Here you are commanding the first joint with a velocity of 0.5rad/s and setting stiffness values for all joints at 200Nm/rad.
 
-Thus to use it in your project, you should publish the ```/r_arm_vel/command``` topic. An example of it being used in simulation is provided in the [task_motion_planning_cds](https://github.com/nbfigueroa/task_motion_planning_cds) package.
+Thus, to use it in your project, you should publish the ```/r_arm_vel/command``` topic. The current robot state is published by the simulation on the ```/joint_states``` topic which is of the type ```sensor_msgs/JointState```. An example of it being used in simulation is provided in the [task_motion_planning_cds](https://github.com/nbfigueroa/task_motion_planning_cds) package.
 
 In order to **visualize** the KUKA LWR robot in realtime you will need to install the robot-toolkit package:
 ```

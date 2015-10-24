@@ -1,5 +1,5 @@
 # KUKA LWR @LASA Simulation 
-This package runs a simulation of the KUKA LWR robot in the LASA lab (EPFL) with the velocity/position controllers provided the IAI lab (Uni Bremen).
+This package runs a simulation of the KUKA LWR robot in the LASA lab (EPFL) with the velocity-resolved controllers provided the IAI lab (Uni Bremen).
 
 In order to run this code, install the following packages beforehand:
  
@@ -31,16 +31,17 @@ If everything goes well, you should see something like this:
 ![alt tag](https://cloud.githubusercontent.com/assets/761512/10678185/08057796-7911-11e5-8641-896615534612.png)
 
 
-This simulation offers a joint velocity/position-resolved controller in ROS. You can send it joint velocity/stiffness or position/stiffness commands and it will follow suit. No dynamics or physics simulation is included. This can be used to test code and trajectories before going on to the real robot.
+This simulation offers a joint velocity-resolved interface for the KUKA LWR robot in ROS. You can send it joint velocity/stiffness commands and it will follow suit. No dynamics or physics simulation is included. This can be used to test code and trajectories before going on to the real robot.
 
 To test the simulation, you can manually move the robot like so:
 
 ```
-rostopic pub -r 20 /KUKA/joint_cmd sensor_msgs/JointState '{velocity: [0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], stiffness: [200.0, 200.0, 200.0, 200.0, 200.0, 200.0, 200.0]}'
-```
-Here you are commanding the first joint with a velocity of 0.5rad/s and setting stiffness values for all joint at 200Nm/rad.
+rostopic pub -r 20 /r_arm_vel/command iai_control_msgs/MultiJointVelocityImpedanceCommand '{velocity: [0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], stiffness: [200.0, 200.0, 200.0, 200.0, 200.0, 200.0, 200.0]}'
 
-An example of it being used in simulation is provided in the [task_motion_planning_cds](https://github.com/nbfigueroa/task_motion_planning_cds) package.
+```
+Here you are commanding the first joint with a velocity of 0.5rad/s and setting stiffness values for all joints at 200Nm/rad.
+
+Thus to use it in your project, you should publish the ```/r_arm_vel/command``` topic. An example of it being used in simulation is provided in the [task_motion_planning_cds](https://github.com/nbfigueroa/task_motion_planning_cds) package.
 
 In order to **visualize** the KUKA LWR robot in realtime you will need to install the robot-toolkit package:
 ```

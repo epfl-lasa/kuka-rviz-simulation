@@ -80,6 +80,6 @@ Here the target attractors are being computed for the dough rolling task. If you
 
 ####Robot Setting 2:
 
-We also have a ```lwr2_simulation_viz.launch``` and ```lwr2_realtime_viz.launch``` which has the robot arm mounted on another table *(the one in front of the lab entrance)* and an operation table in fron of it. Also, it has the Kinect 2 mounted on a pole and facing the operation table and a Kinect 1 on the side of the operation table. Both kinects are calibrated to the robot base frame, as below:
+We also have a second setting: ```lwr2_simulation_viz.launch``` and ```lwr2_realtime_viz.launch``` which has the robot arm mounted on another table *(the one in front of the lab entrance)* and an operation table in front of it. Also, it has the Kinect 2 mounted on a pole and facing the operation table and a Kinect 1 on the side of the operation table. Both kinects are calibrated to the robot base frame, as shown below:
 
 ![alt tag](https://cloud.githubusercontent.com/assets/761512/10713496/87c1669a-7ac2-11e5-8171-a8e281fa36d6.png)

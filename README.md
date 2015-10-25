@@ -28,7 +28,7 @@ Once in rviz,
 
 If everything goes well, you should see something like this:
 
-![alt tag](https://cloud.githubusercontent.com/assets/761512/10678185/08057796-7911-11e5-8641-896615534612.png)
+![alt tag](https://cloud.githubusercontent.com/assets/761512/10713506/56d76c5e-7ac3-11e5-9e3d-20fae14158c2.png)
 
 
 This simulation offers a joint velocity-resolved interface for the KUKA LWR robot in ROS. You can send it joint velocity/stiffness commands and it will follow suit. No dynamics or physics simulation is included. This can be used to test code and trajectories before going on to the real robot.

@@ -49,7 +49,7 @@ $ git clone https://github.com/epfl-lasa/robot-toolkit.git
 ```
 ---
 You can also use this package as a **realtime visualization** of your experiments, there are two options:
- 1. If you are using [Nadia's kuka_interface_packages](https://github.com/nbfigueroa/kuka_interface_packages.git)   which control the robot in a modular architecture you can start up the environment and visualization as follows:
+ 1. If you are using [Nadia's kuka_interface_packages](https://github.com/nbfigueroa/kuka_interface_packages.git)   which control the robot in a modular architecture using the ```kuka_fri_bridge``` you can start up the environment and visualization as follows:
 
  ```
  $ roslaunch kuka_lwr_bringup lwr_realtime_viz.launch
@@ -58,7 +58,7 @@ You can also use this package as a **realtime visualization** of your experiment
  ```
 The ```kuka_fri_bridge``` will be publishing the ```/joint_states```topic.
 
- 2. If you are using the epfl-lasa standard interface packages ([lwr_interface](https://github.com/epfl-lasa/lwr-interface) and [fri-library-ros](https://github.com/epfl-lasa/fri-library-ros)) you can just run robot_mirror and rviz as follows:
+ 2. If you are using the epfl-lasa standard interface packages ([lwr_interface](https://github.com/epfl-lasa/lwr-interface) and [fri-library-ros](https://github.com/epfl-lasa/fri-library-ros)) within your control node, you can just start-up robot_mirror and rviz as follows:
 
  ```
  $ roslaunch kuka_lwr_bringup lwr_realtime_viz.launch
@@ -67,4 +67,16 @@ The ```kuka_fri_bridge``` will be publishing the ```/joint_states```topic.
  ```
  The ```robot_mirror``` will be publishing the ```/joint_states```topic.
  
+If you are controlling the robot in some other way, you can still use this package, you only need to publish ```/joint_states```topic.
+
 ---
+
+###Robot Environments:
+
+Robot Setting 1:
+The simulation shown above is using the ```lwr_simulation_viz.launch``` it shows the robot arm mounted on a table with a pole to its left. This setting is the Kuka Setting 1 (right corner of the lab - next to the IIWA robot), the pole depicts the Kinect mounted on top, which is already calibrated wrt. the robot base frame in the model. Thus, in realtime mode (```lwr_realtime_viz.launch```) if you turn on the Kinect you will visualize the point clouds calibrated wrt. the robot and will be able to compute target frames in the robot reference frame as below:
+![alt tag]()
+Here the target attractors are being computed for the dough rolling task. If you want to use the Kinect to compute target frames for manipulation go to the [kinect-recognition](https://github.com/epfl-lasa/kinect-recognition) where you can find the implementation of dough recognition and attractor estimation for the Robohow dough rolling task.
+
+Robot Setting 2:
+We also have a ```lwr2_simulation_viz.launch``` and ```lwr2_realtime_viz.launch``` which has the robot arm mounted on another table (the one in front of the lab entrance) and an operation table in fron of it. Also, it has the Kinect 2 mounted on a pole and facing the operation table and a Kinect 1 on the side of the operation table. Both kinects are calibrated to the robot base frame.

@@ -43,13 +43,10 @@ Here you are commanding the first joint with a velocity of 0.5rad/s and setting 
 
 Thus, to use it in your project, you should publish the ```/r_arm_vel/command``` topic. The current robot state is published by the simulation on the ```/joint_states``` topic which is of the type ```sensor_msgs/JointState```. An example of it being used in simulation is provided in the [task_motion_planning_cds](https://github.com/nbfigueroa/task_motion_planning_cds) package.
 
-In order to **visualize** the KUKA LWR robot in realtime you will need to install the robot-toolkit package:
-```
-$ git clone https://github.com/epfl-lasa/robot-toolkit.git
-```
+
 ---
 You can also use this package as a **realtime visualization** of your experiments, there are two options:
- 1. If you are using [Nadia's kuka_interface_packages](https://github.com/nbfigueroa/kuka_interface_packages.git)   which control the robot in a modular architecture using the ```kuka_fri_bridge``` you can start up the environment and visualization as follows:
+ 1. If you are using [Nadia's kuka_interface_packages](https://github.com/nbfigueroa/kuka_interface_packages.git)   which control the robot in a modular architecture using the ```kuka_fri_bridge```  and [robot-toolkit](https://github.com/epfl-lasa/robot-toolkit.git) you can start up the environment and visualization as follows:
 
  ```
  $ roslaunch kuka_lwr_bringup lwr_realtime_viz.launch
@@ -58,7 +55,7 @@ You can also use this package as a **realtime visualization** of your experiment
  ```
 The ```kuka_fri_bridge``` will be publishing the ```/joint_states```topic.
 
- 2. If you are using the epfl-lasa standard interface packages ([lwr_interface](https://github.com/epfl-lasa/lwr-interface) and [fri-library-ros](https://github.com/epfl-lasa/fri-library-ros)) within your control node, you can just start-up robot_mirror and rviz as follows:
+ 2. If you are using the epfl-lasa standard interface packages ([lwr_interface](https://github.com/epfl-lasa/lwr-interface) and [fri-library-ros](https://github.com/epfl-lasa/fri-library-ros)) within your control node/module in [robot-toolkit](https://github.com/epfl-lasa/robot-toolkit.git), you can just start-up robot_mirror and rviz as follows:
 
  ```
  $ roslaunch kuka_lwr_bringup lwr_realtime_viz.launch

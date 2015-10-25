@@ -47,21 +47,23 @@ In order to **visualize** the KUKA LWR robot in realtime you will need to instal
 ```
 $ git clone https://github.com/epfl-lasa/robot-toolkit.git
 ```
+---
+You can also use this package as a **realtime visualization** of your experiments, there are two options:
+ 1. If you are using [Nadia's kuka_interface_packages](https://github.com/nbfigueroa/kuka_interface_packages.git)   which control the robot in a modular architecture you can start up the environment and visualization as follows:
 
-For **realtime visualization** there are two options:
-If you are using [Nadia's kuka_interface_packages](https://github.com/nbfigueroa/kuka_interface_packages.git) to control the robot in a modular architecture you can start up the environment and visualization as follows:
+ ```
+ $ roslaunch kuka_lwr_bringup lwr_realtime_viz.launch
+ $ rosrun kuka_fri_bridge run_lwr.sh
+ $ rosrun rviz rviz
+ ```
+The ```kuka_fri_bridge``` will be publishing the ```/joint_states```topic.
 
-```
-$ roslaunch kuka_lwr_bringup lwr_realtime_viz.launch
-$ rosrun kuka_fri_bridge run_lwr.sh
-$ rosrun rviz rviz
-```
+ 2. If you are using the epfl-lasa standard interface packages ([lwr_interface](https://github.com/epfl-lasa/lwr-interface) and [fri-library-ros](https://github.com/epfl-lasa/fri-library-ros)) you can just run robot_mirror and rviz as follows:
 
-If you are using the epfl-lasa standard interface packages ([lwr_interface](https://github.com/epfl-lasa/lwr-interface) and [fri-library-ros](https://github.com/epfl-lasa/fri-library-ros)) you can just run robot_mirror and rviz as follows:
-
-```
-$ roslaunch kuka_lwr_bringup lwr_realtime_viz.launch
-$ roslaunch robot_mirror robot_mirror.launch
-$ rosrun rviz rviz
-```
+ ```
+ $ roslaunch kuka_lwr_bringup lwr_realtime_viz.launch
+ $ roslaunch robot_mirror robot_mirror.launch
+ $ rosrun rviz rviz
+ ```
+ The ```robot_mirror``` will be publishing the ```/joint_states```topic.
 ---

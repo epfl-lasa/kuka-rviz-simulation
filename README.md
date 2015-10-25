@@ -75,7 +75,9 @@ If you are controlling the robot in some other way, you can still use this packa
 
 Robot Setting 1:
 The simulation shown above is using the ```lwr_simulation_viz.launch``` it shows the robot arm mounted on a table with a pole to its left. This setting is the Kuka Setting 1 (right corner of the lab - next to the IIWA robot), the pole depicts the Kinect mounted on top, which is already calibrated wrt. the robot base frame in the model. Thus, in realtime mode (```lwr_realtime_viz.launch```) if you turn on the Kinect you will visualize the point clouds calibrated wrt. the robot and will be able to compute target frames in the robot reference frame as below:
-![alt tag]()
+
+![alt tag](https://cloud.githubusercontent.com/assets/761512/10713448/f3a4ffbe-7abf-11e5-979a-fc1b6c956fd8.png)
+
 Here the target attractors are being computed for the dough rolling task. If you want to use the Kinect to compute target frames for manipulation go to the [kinect-recognition](https://github.com/epfl-lasa/kinect-recognition) where you can find the implementation of dough recognition and attractor estimation for the Robohow dough rolling task.
 
 Robot Setting 2:

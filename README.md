@@ -66,4 +66,5 @@ The ```kuka_fri_bridge``` will be publishing the ```/joint_states```topic.
  $ rosrun rviz rviz
  ```
  The ```robot_mirror``` will be publishing the ```/joint_states```topic.
+ 
 ---

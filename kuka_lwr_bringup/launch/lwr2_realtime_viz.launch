@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <launch>
-  <include file="$(find kuka_lwr_bringup)/launch/lwr2_loopback_sim_no_controllers.launch"/>
+  <include file="$(find kuka_lwr_bringup)/launch/controllers/lwr2_loopback_sim_no_controllers.launch"/>
   
   <!-- Bremen Velocity Controllers -->
   <!-- include file="$(find kuka_lwr_bringup)/launch/lwr_sim_vel_controllers.launch" -->
@@ -8,7 +8,7 @@
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="log" />
 
   <!-- Upload Kinect-Robot Base Calibrated Transform -->
-  <include file="$(find kuka_lwr_bringup)/launch/upload_frames4calibration.launch"/>
-  <include file="$(find kuka_lwr_bringup)/launch/world_to_camera_tf_broadcaster_broadcaster.launch"/>
+  <include file="$(find kuka_lwr_bringup)/launch/calibration/upload_frames4calibration.launch"/>
+  <include file="$(find kuka_lwr_bringup)/launch/calibration/world_to_camera_tf_broadcaster_broadcaster.launch"/>
   
 </launch>

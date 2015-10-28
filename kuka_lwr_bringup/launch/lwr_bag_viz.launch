@@ -1,18 +1,6 @@
 <?xml version="1.0" ?>
 <launch>
-  <include file="$(find lwr_bringup)/launch/lwr_loopback_sim_no_controllers.launch"/>
-  <!-- In Simulation (No real robot /joint_states)-->
-  <!--     <include file="$(find lwr_bringup)/launch/lwr_loopback_sim_no_controllers_sim.launch"/> -->
-  
-  <!-- Bremen Velocity Controllers -->
-  <!-- include file="$(find lwr_bringup)/launch/lwr_sim_vel_controllers.launch" -->
-  
-<!--   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="log" /> -->
-
+  <include file="$(find lwr_bringup)/launch/controllers/lwr_loopback_sim_no_controllers.launch"/>
   <node pkg="rosbag" type="play" name="rosbagplay" args="--clock -q -r 1.0 /home/nbfigueroa/full_cont_1.bag" />
 
-    <!-- Upload Kinect-Robot Base Calibrated Transform -->
-<!--     <include file="$(find lwr_bringup)/launch/upload_frames4calibration.launch"/> -->
-<!--     <include file="$(find lwr_bringup)/launch/world_to_camera_tf_broadcaster_good.launch"/> -->
-  
 </launch>

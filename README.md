@@ -44,7 +44,7 @@ Here you are commanding the first joint with a velocity of 0.5rad/s and setting 
 To test the simulation in **position control mode** do the following:
 
 ```
-rostopic pub /r_arm_pos_controller/command std_msgsloat32MultiArray '{data: [-0.29, -0.26, 0.11, -1.7, 0.96, 1.8, -2.03]}'
+rostopic pub /r_arm_pos_controller/command std_msgs/Float32MultiArray '{data: [-0.29, -0.26, 0.11, -1.7, 0.96, 1.8, -2.03]}'
 
 ```
 Position values per joint are in [rad].

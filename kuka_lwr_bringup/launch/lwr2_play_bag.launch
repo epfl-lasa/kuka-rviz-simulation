@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<launch>
+
+   <!-- load up urdf to the parameter server -->
+   <include file="$(find kuka_lwr_bringup)/launch/upload_lwr2.launch"/>
+  
+   <!-- Startup RVIZ with given config -->
+   <!-- <node name="rviz" pkg="rviz" type="rviz"  args="-d $(find kuka_lwr_bringup)/rviz-config/lwr2-rviz-config.rviz"  required="true" /> -->
+
+   <!-- Startup rqt_plot for all sensors (rviz, images, ft) -->  
+   <node name="launch_rqt" pkg="kuka_lwr_bringup" type="launch_rqt.sh" />
+
+
+</launch>

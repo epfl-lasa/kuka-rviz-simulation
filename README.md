@@ -31,15 +31,23 @@ If everything goes well, you should see something like this:
 ![alt tag](https://cloud.githubusercontent.com/assets/761512/10713506/56d76c5e-7ac3-11e5-9e3d-20fae14158c2.png)
 
 
-This simulation offers a joint velocity-resolved interface for the KUKA LWR robot in ROS. You can send it joint velocity/stiffness commands and it will follow suit. No dynamics or physics simulation is included. This can be used to test code and trajectories before going on to the real robot.
+This simulation offers a joint velocity/position-resolved interface for the KUKA LWR robot in ROS. You can send it joint velocity/stiffness or position commands and it will follow suit. No dynamics or physics simulation is included. This can be used to test code and trajectories before going on to the real robot.
 
-To test the simulation, you can manually move the robot like so:
+To test the simulation, you can manually move the robot in **velocity control mode** like so:
 
 ```
 rostopic pub -r 20 /r_arm_vel/command iai_control_msgs/MultiJointVelocityImpedanceCommand '{velocity: [0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], stiffness: [200.0, 200.0, 200.0, 200.0, 200.0, 200.0, 200.0]}'
 
 ```
 Here you are commanding the first joint with a velocity of 0.5rad/s and setting stiffness values for all joints at 200Nm/rad.
+
+To test the simulation in **position control mode** do the following:
+
+```
+rostopic pub /r_arm_pos_controller/command std_msgsloat32MultiArray '{data: [-0.29, -0.26, 0.11, -1.7, 0.96, 1.8, -2.03]}'
+
+```
+Position values per joint are in [rad].
 
 Thus, to use it in your project, you should publish the ```/r_arm_vel/command``` topic. The current robot state is published by the simulation on the ```/joint_states``` topic which is of the type ```sensor_msgs/JointState```. An example of it being used in simulation is provided in the [task_motion_planning_cds](https://github.com/nbfigueroa/task_motion_planning_cds) package.
 

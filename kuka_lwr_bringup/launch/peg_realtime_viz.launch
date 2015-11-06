@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<launch>
+
+
+ <!-- FOR real robot simulation -->
+  <arg name="default-starting-config"   default="1"/>
+  <arg name="urdf-name"		  	default="kuka_lwr_peg.xacro"/>
+  <arg name="urdf-path" 	  	default="$(find kuka_lwr_description)/robots/$(arg urdf-name)"/>
+
+  <!-- some global variable -->
+  <param name="/use_sim_time" value="false"/>
+
+  <!-- load up urdf to the parameter server -->
+
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(arg urdf-path)'" />
+  
+  <!-- Bremen Velocity Controllers -->
+  <!-- include file="$(find kuka_lwr_bringup)/launch/lwr_sim_vel_controllers.launch" -->
+  
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="log" />
+
+  <!-- Upload Kinect-Robot Base Calibrated Transform -->
+  <include file="$(find kuka_lwr_bringup)/launch/calibration/upload_frames4calibration.launch"/>
+  <include file="$(find kuka_lwr_bringup)/launch/calibration/world_to_camera_tf_broadcaster_good.launch"/>
+
+  
+   <!-- Startup RVIZ with given config -->
+   <!--node name="rviz" pkg="rviz" type="rviz"  args="-d $(find kuka_lwr_bringup)/rviz-config/lwr-rviz-config.rviz"  required="true" /-->
+  
+</launch>

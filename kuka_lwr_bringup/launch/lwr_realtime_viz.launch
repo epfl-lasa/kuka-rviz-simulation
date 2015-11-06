@@ -10,6 +10,6 @@
   <include file="$(find kuka_lwr_bringup)/launch/calibration/world_to_camera_tf_broadcaster_good.launch"/>
   
    <!-- Startup RVIZ with given config -->
-   <node name="rviz" pkg="rviz" type="rviz"  args="-d $(find kuka_lwr_bringup)/rviz-config/lwr-rviz-config.rviz"  required="true" />
+   <!--node name="rviz" pkg="rviz" type="rviz"  args="-d $(find kuka_lwr_bringup)/rviz-config/lwr-rviz-config.rviz"  required="true" /-->
   
 </launch>

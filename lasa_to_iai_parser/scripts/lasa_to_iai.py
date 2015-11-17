@@ -45,9 +45,9 @@ class JS_converter(object):
             for i in range(self.num_dof):
                  self.js_position[i] = msg.position[i]
 
-            rospy.loginfo("\nJoint Position Command [%f,%f,%f,%f,%f,%f,%f]", 
-                self.js_position[0],self.js_position[1],self.js_position[2],self.js_position[3],
-                self.js_position[4],self.js_position[5],self.js_position[6])
+            # rospy.loginfo("\nJoint Position Command [%f,%f,%f,%f,%f,%f,%f]", 
+                # self.js_position[0],self.js_position[1],self.js_position[2],self.js_position[3],
+                # self.js_position[4],self.js_position[5],self.js_position[6])
 
             # Send values of desired joint positions to iai-compatible topic
             
@@ -59,9 +59,9 @@ class JS_converter(object):
         if (numpy.size(msg.velocity) ==  self.num_dof):
             
 
-            rospy.loginfo("\nJoint Velocity Command [%f,%f,%f,%f,%f,%f,%f]", 
-                msg.velocity[0],msg.velocity[1],msg.velocity[2],msg.velocity[3],
-                msg.velocity[4],msg.velocity[5],msg.velocity[6])
+            # rospy.loginfo("\nJoint Velocity Command [%f,%f,%f,%f,%f,%f,%f]", 
+                # msg.velocity[0],msg.velocity[1],msg.velocity[2],msg.velocity[3],
+                # msg.velocity[4],msg.velocity[5],msg.velocity[6])
 
             # Send values of desired joint velocities to iai-compatible topic            
             out_vel_msg = self.vel_output_topic_type()

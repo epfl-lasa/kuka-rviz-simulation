@@ -1,6 +1,0 @@
-<?xml version="1.0" ?>
-<launch>
-  <include file="$(find lwr_bringup)/launch/controllers/lwr_loopback_sim_no_controllers.launch"/>
-  <node pkg="rosbag" type="play" name="rosbagplay" args="--clock -q -r 1.0 /home/nbfigueroa/full_cont_1.bag" />
-
-</launch>

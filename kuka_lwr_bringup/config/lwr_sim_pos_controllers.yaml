@@ -1,0 +1,14 @@
+r_arm_state_separator:
+  joint_names:
+    - right_arm_0_joint
+    - right_arm_1_joint
+    - right_arm_2_joint
+    - right_arm_3_joint
+    - right_arm_4_joint
+    - right_arm_5_joint
+    - right_arm_6_joint
+r_arm_pos_controller: &controller_params
+  vel_command_type: MultiJointVelocityImpedanceCommand
+  max_speed: 0.3
+  p_gain: 3.5
+  stiffness: 100

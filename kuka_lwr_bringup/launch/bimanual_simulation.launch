@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<launch>
+  <include file="$(find kuka_lwr_bringup)/launch/bimanual_lwr_simulation_viz.launch"/>
+ 
+  <node pkg="using_markers" type="basic_shapes" name="basic_shapes" />
+  <node pkg="box_tf_to_tp" type="box_tf_to_tp" name="box_tf_to_tp" />
+  <!--node pkg="ball" type="ball" name="ball" -->
+  
+</launch>

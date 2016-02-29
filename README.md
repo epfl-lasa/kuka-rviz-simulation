@@ -8,10 +8,16 @@ sudo apt-get install ros-indigo-pr2-mechanism-model ros-indigo-pr2-controller-ma
 ```
 
 In addition to this, you need to have two more repos from code-iai in your workspace:
-
+TODO: Remove dependency of these message types and control pkgs
 ```
 $ git clone https://github.com/code-iai/iai_control_pkgs
 $ git clone https://github.com/code-iai/iai_common_msgs
+```
+
+To use the same message type in simulation and with the real robot via the kuka_fri_bridge you need to download and install the following repo:
+
+```
+$ git clone https://github.com/nbfigueroa/kuka_interface_packages
 ```
 ---
 ##Functionalities:

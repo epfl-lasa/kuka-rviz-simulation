@@ -8,6 +8,7 @@ sudo apt-get install ros-indigo-pr2-mechanism-model ros-indigo-pr2-controller-ma
 ```
 
 In addition to this, you need to have two more repos from code-iai in your workspace:
+
 TODO: Remove dependency of these message types and control pkgs
 ```
 $ git clone https://github.com/code-iai/iai_control_pkgs

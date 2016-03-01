@@ -6,7 +6,7 @@ In order to run this code, install the following packages beforehand:
 ```
 sudo apt-get install ros-indigo-pr2-mechanism-model ros-indigo-pr2-controller-manager ros-indigo-control-toolbox ros-indigo-pr2-mechanism-controllers
 ```
-To use the same message type in simulation and with the real robot via the kuka_fri_bridge you need to download and install the following repo:
+To use the same message type in simulation and with the real robot via the  [kuka_fri_bridge](https://github.com/nbfigueroa/kuka_interface_packages.git)  you need to download and install the following repo:
 
 ```
 $ git clone https://github.com/nbfigueroa/kuka_interface_packages

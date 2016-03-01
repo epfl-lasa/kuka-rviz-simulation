@@ -1,5 +1,5 @@
 # KUKA LWR @LASA Simulation and Visualization
-This package runs a simulation of the KUKA LWR robot in the LASA lab (EPFL) with the velocity-resolved controllers provided the IAI lab (Uni Bremen).
+This package runs a simulation of the KUKA LWR robot in the LASA lab (EPFL) with the velocity/position-resolved controllers from the standard pr2 control manager, using some of the IAI lab ctrl packages (Uni Bremen).
 
 In order to run this code, install the following packages beforehand:
  
@@ -9,9 +9,16 @@ sudo apt-get install ros-indigo-pr2-mechanism-model ros-indigo-pr2-controller-ma
 
 In addition to this, you need to have two more repos from code-iai in your workspace:
 
+TODO: Remove dependency of these message types and control pkgs
 ```
 $ git clone https://github.com/code-iai/iai_control_pkgs
 $ git clone https://github.com/code-iai/iai_common_msgs
+```
+
+To use the same message type in simulation and with the real robot via the kuka_fri_bridge you need to download and install the following repo:
+
+```
+$ git clone https://github.com/nbfigueroa/kuka_interface_packages
 ```
 ---
 ##Functionalities:
@@ -30,21 +37,20 @@ If everything goes well, you should see something like this:
 ![alt tag](https://cloud.githubusercontent.com/assets/761512/10713506/56d76c5e-7ac3-11e5-9e3d-20fae14158c2.png)
 
 
-This simulation offers a joint velocity/position-resolved interface for the KUKA LWR robot in ROS. You can send it joint velocity/stiffness or position commands and it will follow suit. No dynamics or physics simulation is included. This can be used to test code and trajectories before going on to the real robot.
+This simulation offers a joint velocity/position-resolved interface for the KUKA LWR robot in ROS. You can send it joint velocity or position commands and it will follow suit. No dynamics or physics simulation is included. This can be used to test code and trajectories before going on to the real robot.
 
 To test the simulation, you can manually move the robot in **velocity control mode** like so:
 
 ```
-rostopic pub -r 20 /r_arm_vel/command iai_control_msgs/MultiJointVelocityImpedanceCommand '{velocity: [0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], stiffness: [200.0, 200.0, 200.0, 200.0, 200.0, 200.0, 200.0]}'
-
+rostopic pub -20 /KUKA/joint_imp_cmd kuka_fri_bridge/JointStateImpedance '{velocity: [0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], stiffness: [200.0, 200.0, 200.0, 200.0, 200.0, 200.0, 200.0]}'
 ```
+
 Here you are commanding the first joint with a velocity of 0.5rad/s and setting stiffness values for all joints at 200Nm/rad.
 
 To test the simulation in **position control mode** do the following:
 
 ```
-rostopic pub /r_arm_pos_controller/command std_msgs/Float32MultiArray '{data: [-0.29, -0.26, 0.11, -1.7, 0.96, 1.8, -2.03]}'
-
+rostopic pub -20 /KUKA/joint_imp_cmd kuka_fri_bridge/JointStateImpedance '{position: [0.29, -0.26, 0.11, -1.7, 0.96, 1.8, -2.43]}'
 ```
 Position values per joint are in [rad].
 
@@ -89,10 +95,40 @@ We also have a second setting: ```lwr2_simulation.launch``` and ```lwr2_realtime
 
 ![alt tag](https://cloud.githubusercontent.com/assets/761512/10713496/87c1669a-7ac2-11e5-8171-a8e281fa36d6.png)
 
+
+####Robot Setting 3:
+The third setting is the bimanual configuration, i.e. two lwr robot arms, as shown below:
+
+
+To run the bimanual simulation:
+```
+$ roslaunch kuka_lwr_bringup bimanual_lwr_simulation_viz.launch
+```
+
+Test velocity control left arm:
+```
+rostopic pub -r 20 /l_arm_vel/command iai_control_msgs/MultiJointVelocityImpedanceCommand '{velocity: [0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}'
+```
+
+Test velocity control right arm:
+```
+rostopic pub -r 20 /r_arm_vel/command iai_control_msgs/MultiJointVelocityImpedanceCommand '{velocity: [0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}'
+```
+
+Test position control left arm:
+```
+rostopic pub /l_arm_pos_controller/command std_msgs/Float32MultiArray '{data: [0.0, 2.0, 0.0, 4.0, 0.0, 0.0, 5.0]}'
+```
+
+test position control right arm:
+```
+rostopic pub /r_arm_pos_controller/command std_msgsloat32MultiArray '{data: [0.0, -1.0, 0.0, -10.0, 0.0, 0.0, 130]}'
+```
+
 ###Modify/Create Environments:
 To modify the simulation environment (i.e. position of the robo/table, add more robots/tables/objects) go to the following directory and create your own urdf.xacro file:
 ```
-~/kuka-rviz-simulation/kuka_lwr_bringup/kuka_lwr_description/robots/
+~/kuka-rviz-simulation/kuka_lwr_bringup/kuka_lwr_description/robots/kuka_bimanual_lwr_lasa.urdf.xacro
 
 ```
 

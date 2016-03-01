@@ -6,15 +6,6 @@ In order to run this code, install the following packages beforehand:
 ```
 sudo apt-get install ros-indigo-pr2-mechanism-model ros-indigo-pr2-controller-manager ros-indigo-control-toolbox ros-indigo-pr2-mechanism-controllers
 ```
-
-In addition to this, you need to have two more repos from code-iai in your workspace:
-
-TODO: Remove dependency of these message types and control pkgs
-```
-$ git clone https://github.com/code-iai/iai_control_pkgs
-$ git clone https://github.com/code-iai/iai_common_msgs
-```
-
 To use the same message type in simulation and with the real robot via the kuka_fri_bridge you need to download and install the following repo:
 
 ```
@@ -103,27 +94,27 @@ The third setting is the bimanual configuration, i.e. two lwr robot arms, as sho
 
 To run the bimanual simulation:
 ```
-$ roslaunch kuka_lwr_bringup bimanual_lwr_simulation_viz.launch
+$ roslaunch kuka_lwr_bringup bimanual_simulation.launch
 ```
 
 Test velocity control left arm:
 ```
-rostopic pub -r 20 /l_arm_vel/command iai_control_msgs/MultiJointVelocityImpedanceCommand '{velocity: [0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}'
+rostopic pub -r 20 /l_arm_controller/joint_imp_cmd kuka_fri_bridge/JointStateImpedance '{velocity: [0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}'
 ```
 
 Test velocity control right arm:
 ```
-rostopic pub -r 20 /r_arm_vel/command iai_control_msgs/MultiJointVelocityImpedanceCommand '{velocity: [0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}'
+rostopic pub -r 20 /r_arm_controller/joint_imp_cmd kuka_fri_bridge/JointStateImpedance '{velocity: [0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}'
 ```
 
 Test position control left arm:
 ```
-rostopic pub /l_arm_pos_controller/command std_msgs/Float32MultiArray '{data: [0.0, 2.0, 0.0, 4.0, 0.0, 0.0, 5.0]}'
+rostopic pub -r 20 /l_arm_controller/joint_imp_cmd kuka_fri_bridge/JointStateImpedance '{position: [0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}'
 ```
 
 test position control right arm:
 ```
-rostopic pub /r_arm_pos_controller/command std_msgsloat32MultiArray '{data: [0.0, -1.0, 0.0, -10.0, 0.0, 0.0, 130]}'
+rostopic pub -r 20 /r_arm_controller/joint_imp_cmd kuka_fri_bridge/JointStateImpedance '{position: [0.0, -1.0, 0.0, -10.0, 0.0, 0.0, 130]}'
 ```
 
 ###Modify/Create Environments:

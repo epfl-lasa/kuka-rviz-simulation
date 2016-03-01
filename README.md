@@ -99,6 +99,7 @@ We also have a second setting: ```lwr2_simulation.launch``` and ```lwr2_realtime
 ####Robot Setting 3:
 The third setting is the bimanual configuration, i.e. two lwr robot arms, as shown below:
 
+![alt tag](https://cloud.githubusercontent.com/assets/761512/13420097/8e7f9012-df83-11e5-8422-c0f2f381f964.png)
 
 To run the bimanual simulation:
 ```

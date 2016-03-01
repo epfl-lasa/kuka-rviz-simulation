@@ -95,10 +95,40 @@ We also have a second setting: ```lwr2_simulation.launch``` and ```lwr2_realtime
 
 ![alt tag](https://cloud.githubusercontent.com/assets/761512/10713496/87c1669a-7ac2-11e5-8171-a8e281fa36d6.png)
 
+
+####Robot Setting 3:
+The third setting is the bimanual configuration, i.e. two lwr robot arms, as shown below:
+
+
+To run the bimanual simulation:
+```
+$ roslaunch kuka_lwr_bringup bimanual_lwr_simulation_viz.launch
+```
+
+Test velocity control left arm:
+```
+rostopic pub -r 20 /l_arm_vel/command iai_control_msgs/MultiJointVelocityImpedanceCommand '{velocity: [0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}'
+```
+
+Test velocity control right arm:
+```
+rostopic pub -r 20 /r_arm_vel/command iai_control_msgs/MultiJointVelocityImpedanceCommand '{velocity: [0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}'
+```
+
+Test position control left arm:
+```
+rostopic pub /l_arm_pos_controller/command std_msgs/Float32MultiArray '{data: [0.0, 2.0, 0.0, 4.0, 0.0, 0.0, 5.0]}'
+```
+
+test position control right arm:
+```
+rostopic pub /r_arm_pos_controller/command std_msgsloat32MultiArray '{data: [0.0, -1.0, 0.0, -10.0, 0.0, 0.0, 130]}'
+```
+
 ###Modify/Create Environments:
 To modify the simulation environment (i.e. position of the robo/table, add more robots/tables/objects) go to the following directory and create your own urdf.xacro file:
 ```
-~/kuka-rviz-simulation/kuka_lwr_bringup/kuka_lwr_description/robots/
+~/kuka-rviz-simulation/kuka_lwr_bringup/kuka_lwr_description/robots/kuka_bimanual_lwr_lasa.urdf.xacro
 
 ```
 

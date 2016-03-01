@@ -3,17 +3,16 @@
   <include file="$(find kuka_lwr_bringup)/launch/bimanual_lwr_simulation_viz.launch"/>
   <!--include file="$(find epfl_allegro_launchers)/launch/epfl_right.launch" -->
   <!--include file="$(find bhand_controller)/launch/bhand_controller.launch"-->
- 
+ <!-- 
   <node pkg="using_markers" type="basic_shapes" name="basic_shapes" />
   <node pkg="box_tf_to_tp" type="box_tf_to_tp" name="box_tf_to_tp"/>
   <node pkg="hand_comments" type="hand_comments" name="hand_comments" />
-
- <node pkg="IIWA" type="simple_example" name="simple_example" />
+  <node pkg="IIWA" type="simple_example" name="simple_example" /> -->
 
 
   <!--node pkg="ball" type="ball" name="ball" -->
 
-    <!-- Load LASA to IAI joint state parser -->
-  <node name="lasa_to_iai_parser" pkg="lasa_to_iai_parser" type="lasa_bimanual_to_iai.py" output="screen"/>
+  <!-- Load LASA to IAI joint state parser -->
+  <node name="lasa_bimanual_to_iai_parser" pkg="lasa_to_iai_parser" type="lasa_bimanual_to_iai.py" output="screen"/>
   
 </launch>

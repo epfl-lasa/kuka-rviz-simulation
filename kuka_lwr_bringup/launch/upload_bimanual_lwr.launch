@@ -1,7 +1,18 @@
 <?xml version="1.0" ?>
 <launch>
+
   <arg name="urdf-name" default="kuka_bimanual_lwr_lasa.urdf.xacro"/>
   <arg name="urdf-path" default="$(find kuka_lwr_description)/robots/$(arg urdf-name)"/>
+  <arg name="load-rviz"                   default="true"/>
+  <arg name="rviz-config-path"            default="$(find kuka_lwr_bringup)/rviz-config/bimanual-rviz-config.rviz"/>
+
 
   <param name="robot_description" command="$(find xacro)/xacro.py '$(arg urdf-path)'" />
+
+
+  <!-- Startup RVIZ with given config -->
+  <group if="$(arg load-rviz)">
+    <node name="rviz" pkg="rviz" type="rviz"  args="-d $(arg rviz-config-path)"  required="true" />
+  </group>
+
 </launch>

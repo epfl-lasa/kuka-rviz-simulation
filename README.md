@@ -109,7 +109,8 @@ rostopic pub -r 20 /r_arm_controller/joint_imp_cmd kuka_fri_bridge/JointStateImp
 
 Test position control left arm:
 ```
-rostopic pub -r 20 /l_arm_controller/joint_imp_cmd kuka_fri_bridge/JointStateImpedance '{position: [0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}'
+rostopic pub -r 20 /l_arm_controller/joint_imp_cmd kuka_fri_bridge/JointStateImpedance '{position: [0.0, -1.0, 0.0, -10.0, 0.0, 0.0, 130]}'
+
 ```
 
 test position control right arm:

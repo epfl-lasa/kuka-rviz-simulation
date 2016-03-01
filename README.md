@@ -11,6 +11,8 @@ To use the same message type in simulation and with the real robot via the  [kuk
 ```
 $ git clone https://github.com/nbfigueroa/kuka_interface_packages
 ```
+and don't forget to install all [dependencies](https://github.com/nbfigueroa/kuka_interface_packages) for this package.
+
 ---
 ##Functionalities:
 In order to **simulate** the KUKA LWR robot in the LASA lab with velocity controllers you need to run the following lines of code:

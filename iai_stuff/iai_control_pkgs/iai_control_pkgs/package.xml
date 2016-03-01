@@ -1,0 +1,31 @@
+<package>
+  <name>iai_control_pkgs</name>
+  <version>0.0.0</version>
+  <description>
+    Collection of various robot control packages, written/maintained by
+    the IAI group at Universitaet Bremen.
+  </description>
+
+  <author email="georg.bartels@cs.uni-bremen.de">Georg Bartels</author>
+
+  <maintainer email="georg.bartels@cs.uni-bremen.de">Georg Bartels</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  
+  <run_depend>iai_ft_utils</run_depend>
+  <run_depend>iai_rosbag_utils</run_depend>
+  <run_depend>iai_tf_relay</run_depend>
+  <run_depend>iai_velocity_controller_demux</run_depend>
+  <run_depend>iai_visualization</run_depend>
+  <run_depend>kdl_arm_kinematics</run_depend>
+  <run_depend>loopback_controller_manager</run_depend>
+  <run_depend>loopback_controller_manager_examples</run_depend>
+  <run_depend>iai_robot_mechanism_controllers</run_depend>
+  <run_depend>iai_control_utils</run_depend>
+
+  <export>
+    <metapackage/>
+  </export>
+</package>

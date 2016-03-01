@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package>
+  <name>iai_hardware_interface</name>
+  <version>0.1.0</version>
+  <description>
+    Some hardware interface on top of ros-control maintained by the IAI group.
+  </description>
+
+  <maintainer email="georg.bartels@cs.uni-bremen.de">Georg Bartels</maintainer>
+  <author email="georg.bartels@cs.uni-bremen.de">Georg Bartels</author>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>hardware_interface</build_depend>
+  <build_depend>roscpp</build_depend>
+  <run_depend>hardware_interface</run_depend>
+  <run_depend>roscpp</run_depend>
+
+</package>

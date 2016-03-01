@@ -1,0 +1,11 @@
+<launch>
+
+ <!-- start the standard pr2 position-resolved controllers of the arms -->
+  <rosparam 
+      command="load" 
+      file="$(find pr2_controller_configuration)/pr2_arm_controllers.yaml" />
+
+  <node name="pos_arm_controller_spawner" pkg="pr2_controller_manager"
+      type="spawner" output="screen" args="r_arm_controller l_arm_controller"/>
+
+</launch>

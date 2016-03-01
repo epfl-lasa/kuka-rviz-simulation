@@ -1,0 +1,39 @@
+joints:
+  name:
+    - torso_lift_joint
+    - head_tilt_joint
+    - l_gripper_joint
+    - r_gripper_joint
+    - r_upper_arm_roll_joint
+    - r_shoulder_pan_joint
+    - r_shoulder_lift_joint
+    - r_forearm_roll_joint
+    - r_elbow_flex_joint
+    - r_wrist_flex_joint
+    - r_wrist_roll_joint
+    - l_upper_arm_roll_joint
+    - l_shoulder_pan_joint
+    - l_shoulder_lift_joint
+    - l_forearm_roll_joint
+    - l_elbow_flex_joint
+    - l_wrist_flex_joint
+    - l_wrist_roll_joint
+  position:
+    - 0.31
+    - 1.05
+    - 1.0
+    - 1.0
+    - -1.9643297630604963
+    - -1.265335905500992
+    - 1.2666995326579538
+    - 5.81991983730232
+    - -0.2625872772879775
+    - -0.13242260444085052
+    - -154.3589535227015
+    - 1.392565491097796
+    - 1.0650093105988152
+    - 0.26376743371555295
+    - 214.04420097719472
+    - -1.629946646305397
+    - -0.9668414952685922
+    - -221.66147986216077

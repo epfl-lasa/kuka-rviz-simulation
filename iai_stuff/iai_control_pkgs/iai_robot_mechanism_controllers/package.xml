@@ -1,0 +1,54 @@
+<package>
+  <name>iai_robot_mechanism_controllers</name>
+  <version>0.1.0</version>
+  <description>
+    Mechanism controllers for iai related stuff
+    (Odometry publisher for simulated ROSIE and a
+    multi-joint velocity controller.)
+  </description>
+
+  <author email="moesenle@cs.tum.edu">Lorenz Moesenlechner</author>
+  <author email="kresse@in.tum.de">Ingo Kresse</author>
+
+  <maintainer email="georg.bartels@cs.uni-bremen.de">Georg Bartels</maintainer>
+
+  <license>BSD</license>
+
+  <url type="bugtracker">https://github.com/code-iai/iai_robot_mechanism_controllers/issues</url>
+  <url type="repository">https://github.com/code-iai/iai_robot_mechanism_controllers</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+ 
+  <build_depend>pluginlib</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>boost</build_depend>
+  <build_depend>iai_control_msgs</build_depend>
+  <build_depend>pr2_controller_interface</build_depend>
+  <build_depend>pr2_mechanism_model</build_depend>
+  <build_depend>pr2_mechanism_controllers</build_depend>
+  <build_depend>pr2_mechanism_msgs</build_depend>
+  <build_depend>nav_msgs</build_depend>
+  <build_depend>filters</build_depend>
+  <build_depend>control_toolbox</build_depend>
+  <build_depend>realtime_tools</build_depend>
+  <build_depend>pr2_controller_manager</build_depend>
+
+  <run_depend>pluginlib</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>boost</run_depend>
+  <run_depend>iai_control_msgs</run_depend>
+  <run_depend>pr2_controller_interface</run_depend>
+  <run_depend>pr2_mechanism_model</run_depend>
+  <run_depend>pr2_mechanism_controllers</run_depend>
+  <run_depend>pr2_mechanism_msgs</run_depend>
+  <run_depend>nav_msgs</run_depend>
+  <run_depend>filters</run_depend>
+  <run_depend>control_toolbox</run_depend>
+  <run_depend>realtime_tools</run_depend>
+  <run_depend>pr2_controller_manager</run_depend>
+
+  <export>
+    <pr2_controller_interface plugin="${prefix}/controller_plugins.xml" />
+  </export>
+
+</package>

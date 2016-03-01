@@ -1,0 +1,15 @@
+<launch>
+
+  <include file="$(find loopback_controller_manager_examples)/launch/pr2_loopback_no_controllers.launch"/>
+
+  <include file="$(find loopback_controller_manager_examples)/launch/load_pr2_joint_effort_controllers.launch"/>
+
+  <include file="$(find loopback_controller_manager_examples)/launch/load_pr2_joint_velocity_controllers.launch"/>
+
+  <include file="$(find loopback_controller_manager_examples)/launch/load_pr2_joint_position_controllers.launch"/>
+
+  <include file="$(find loopback_controller_manager_examples)/launch/load_pr2_standard_arm_action_controllers.launch"/>
+
+  <include file="$(find loopback_controller_manager_examples)/launch/start_pr2_head_action_controller.launch"/>
+
+</launch>

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package>
+  <name>iai_ros_controllers</name>
+  <version>0.0.0</version>
+  <description>The iai_ros_controllers package</description>
+
+  <maintainer email="georg@todo.todo">georg</maintainer>
+  <!-- <author email="jane.doe@example.com">Jane Doe</author> -->
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>roscpp</build_depend>
+  <build_depend>iai_hardware_interface</build_depend>
+  <build_depend>controller_interface</build_depend>
+  <build_depend>realtime_tools</build_depend>
+  <build_depend>iai_control_msgs</build_depend>
+ 
+  <run_depend>roscpp</run_depend>
+  <run_depend>iai_hardware_interface</run_depend>
+  <run_depend>controller_interface</run_depend>
+  <run_depend>realtime_tools</run_depend>
+  <run_depend>iai_control_msgs</run_depend>
+
+  <export>
+    <controller_interface plugin="${prefix}/ros_control_plugins.xml"/>
+  </export>
+</package>

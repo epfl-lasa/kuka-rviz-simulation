@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package>
+  <name>iai_kinematics_msgs</name>
+  <version>0.0.5</version>
+  <description>
+    Ensemble of messages to communicate/request kinematics-related issues.
+    
+    NOTE/DISCLAIMER: A lot of these messages have been salvaged from now
+    deprecated packages arm_navigation_msgs and kinematics_msgs. We acknowledge
+    original authorship of these messages to all involved people (I, Georg, do
+    not know them by name).
+  </description>
+
+  <maintainer email="georg.bartels@cs.uni-bremen.de">Georg Bartels</maintainer>
+  <author email="georg.bartels@cs.uni-bremen.de">Georg Bartels</author>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>message_generation</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>std_msgs</build_depend>
+ 
+  <run_depend>message_runtime</run_depend>
+  <run_depend>geometry_msgs</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+  <run_depend>std_msgs</run_depend>
+</package>

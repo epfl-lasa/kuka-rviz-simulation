@@ -1,0 +1,17 @@
+<launch>
+  
+  <!-- name of the root-link of the arm -->
+  <arg name="arm_root_link" default="calib_left_arm_base_link"/>
+  <!-- name of the tip-link of the arm -->
+  <arg name="arm_tip_link" default="left_arm_7_link"/>
+  <!-- name of the node -->
+  <arg name="node_name" default="lwr_ik"/>
+
+  <node name="$(arg node_name)" pkg="kdl_arm_kinematics" type="arm_kinematics" output="screen">
+    <param name="root_name" value="$(arg arm_root_link)"/>
+    <param name="tip_name" value="$(arg arm_tip_link)"/>
+    <param name="epsilon" value="0.00001"/>
+    <param name="maxIterations" value="1000"/>
+  </node>
+
+</launch>

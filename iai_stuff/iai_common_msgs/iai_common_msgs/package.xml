@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<package>
+  <name>iai_common_msgs</name>
+  <version>0.0.5</version>
+  <description>Message definitions created and used by the Institute for Artificial Intelligence research group at the University of Bremen</description>
+ 
+  <author>IAI Robotics Group</author>
+  <maintainer email="ai-robotics@cs.uni-bremen.de">AI Robotics</maintainer>
+  
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  
+  <run_depend>data_vis_msgs</run_depend>
+  <run_depend>designator_integration_msgs</run_depend>
+  <run_depend>dna_extraction_msgs</run_depend>
+  <run_depend>grasp_stability_msgs</run_depend>
+  <run_depend>iai_content_msgs</run_depend>
+  <run_depend>iai_control_msgs</run_depend>
+  <run_depend>iai_kinematics_msgs</run_depend>
+  <run_depend>iai_robosherlock_actions</run_depend>
+  <run_depend>iai_urdf_msgs</run_depend>
+  <run_depend>iai_wsg_50_msgs</run_depend>
+  <run_depend>json_prolog_msgs</run_depend>
+  <run_depend>mln_robosherlock_msgs</run_depend>
+  <run_depend>person_msgs</run_depend>
+  <run_depend>planning_msgs</run_depend>
+  <run_depend>saphari_msgs</run_depend>
+  <run_depend>scanning_table_msgs</run_depend>
+  <run_depend>sherlock_sim_msgs</run_depend>
+
+  <export>
+   <metapackage/>
+  </export>
+</package>

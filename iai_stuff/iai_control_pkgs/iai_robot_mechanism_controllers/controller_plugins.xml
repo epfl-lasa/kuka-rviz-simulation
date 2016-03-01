@@ -1,0 +1,11 @@
+<library path="lib/libiai_robot_mechanism_controllers">
+  <class name="iai_robot_mechanism_controllers/RosieOdometry" 
+         type="controller::RosieOdometry" 
+         base_class_type="pr2_controller_interface::Controller" />
+  <class name="iai_robot_mechanism_controllers/MultiJointVelocityController" 
+         type="controller::MultiJointVelocityController" 
+         base_class_type="pr2_controller_interface::Controller" />
+  <class name="iai_robot_mechanism_controllers/MultiJointVelocityImpedanceController" 
+         type="controller::MultiJointVelocityImpedanceController" 
+         base_class_type="pr2_controller_interface::Controller" />
+</library>

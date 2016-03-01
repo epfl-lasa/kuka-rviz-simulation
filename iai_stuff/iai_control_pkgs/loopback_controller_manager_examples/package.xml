@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package>
+  <name>loopback_controller_manager_examples</name>
+  <version>0.1.0</version>
+  <description>
+    Launch-files and configurations to start various light-weight kinematic
+    simulation environments with the loopback controller manager.
+  </description>
+
+  <author email="georg.bartels@cs.uni-bremen.de">Georg Bartels</author>
+  <maintainer email="georg.bartels@cs.uni-bremen.de">Georg Bartels</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">https://github.com/code-iai/loopback_controller_manager/wiki</url>
+  <url type="bugtracker">https://github.com/code-iai/loopback_controller_manager/issues</url>
+  <url type="repository">https://github.com/code-iai/loopback_controller_manager</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>loopback_controller_manager</run_depend>
+  <run_depend>pr2_description</run_depend>
+  <run_depend>pr2_controller_configuration</run_depend>
+  <run_depend>xacro</run_depend>
+  <run_depend>robot_state_publisher</run_depend>
+  <run_depend>pr2_controller_manager</run_depend>
+  <run_depend>pr2_head_action</run_depend>
+</package>

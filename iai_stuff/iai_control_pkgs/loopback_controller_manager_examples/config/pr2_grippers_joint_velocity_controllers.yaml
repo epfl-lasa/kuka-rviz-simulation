@@ -1,0 +1,13 @@
+r_gripper_velocity_controller:
+  type: robot_mechanism_controllers/JointVelocityController
+  joint: r_gripper_joint
+  pid: &gripper_position_gains
+    p: 4.0
+    i: 0.0
+    d: 25.0
+    i_clamp: 0.0
+
+l_gripper_velocity_controller:
+  type: robot_mechanism_controllers/JointVelocityController
+  joint: l_gripper_joint
+  pid: *gripper_position_gains

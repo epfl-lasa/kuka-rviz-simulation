@@ -1,0 +1,16 @@
+# the desired pose of the tool frame
+geometry_msgs/PoseStamped pose
+
+# tool frame defauts to x_wrist_roll_link
+geometry_msgs/Pose tool_frame
+
+# the joint space configuration to resolve redundancy
+sensor_msgs/JointState ik_seed
+
+# Weight matrices for IK solver
+iai_kinematics_msgs/KDLWeights weights
+
+---
+sensor_msgs/JointState solution
+
+iai_kinematics_msgs/ErrorCodes error_code

@@ -1,0 +1,13 @@
+<library path="lib/libiai_ros_controllers">
+
+  <class name="iai_ros_controllers/MultiJointVelocityImpedanceController"
+         type="iai_ros_controllers::MultiJointVelocityImpedanceController"
+         base_class_type="controller_interface::ControllerBase">
+    <description>
+      The MultiJointVelocityImpedanceController forwards vectors of joint velocities,
+      joint stiffness values, and joint damping values to an hardware interface which
+      supports such commands.
+    </description>
+  </class>
+
+</library>

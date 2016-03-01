@@ -1,0 +1,21 @@
+<package>
+  <name>iai_velocity_controller_demux</name>
+  <version>0.0.0</version>
+  <description>
+    Functionality to demux joint-array velocity commands 
+    onto single-joint commands.
+  </description>
+
+  <author email="georg.bartels@cs.uni-bremen.de">Georg Bartels</author>
+  <maintainer email="georg.bartels@cs.uni-bremen.de">Georg Bartels</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+ 
+  <build_depend>roscpp</build_depend>
+  <build_depend>std_msgs</build_depend>
+
+  <run_depend>roscpp</run_depend>
+  <run_depend>std_msgs</run_depend>
+</package>

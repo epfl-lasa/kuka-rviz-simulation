@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package>
+  <name>iai_control_utils</name>
+  <version>0.1.0</version>
+  <description>
+    Various command-line tools to fascilitate working with controllers.
+  </description>
+
+  <maintainer email="georg.bartels@cs.uni-bremen.de">Georg Bartels</maintainer>
+  <maintainer email="amaldo@cs.uni-bremen.de">Alexis Maldonado</maintainer>
+
+  <author email="amaldo@cs.uni-bremen.de">Alexis Maldonado</author>
+
+  <license>LGPLv3+</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>iai_control_msgs</build_depend>
+
+  <run_depend>rospy</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+  <run_depend>iai_control_msgs</run_depend>
+</package>

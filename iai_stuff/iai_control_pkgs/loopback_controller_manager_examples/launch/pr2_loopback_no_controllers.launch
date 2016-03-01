@@ -1,0 +1,35 @@
+<launch>
+
+  <arg name="default-starting-config" default="1"/>
+
+  <!-- some global variable -->
+  <param name="/use_sim_time" value="false"/>
+
+  <!-- load up pr2-udrf to the parameter server -->
+  <include file="$(find iai_pr2_description)/launch/upload_pr2.launch"/>
+
+  <!-- start loopback controller manager -->
+  <rosparam param="/pr2_controller_manager/joint_state_publish_rate">250.0</rosparam> <!-- in [Hz], default: 100.0 -->
+
+  <!-- conditionally upload start configuration of PR2 to parameter server -->
+  <group if="$(arg default-starting-config)">
+    <rosparam command="load"
+      file="$(find loopback_controller_manager_examples)/config/pr2_start_config.yaml"
+       ns="loopback_controllers"/> 
+  </group>
+
+  <node name="loopback_controllers" type="loopback_controller_manager" pkg="loopback_controller_manager" output="screen">
+    <param name="dt" value="0.004" /> <!-- in [s], default: 0.01 -->
+    <param name="damping" value="1.0" /> <!-- default: 0.1 -->
+  </node>
+
+  <!-- start joint_states to tf transformer -->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="log" />
+
+  <!-- Note: "pr2_default_controllers.launch" from "pr2_controller_configuration" waits for the
+       value true of type "std_msgs/Bool" to be published on topic "/calibrated".
+       Since we are in simulation and we don't need calibration we fake this flag. -->
+  <node pkg="rostopic" type="rostopic" name="$(anon rostopic)"
+        args="pub calibrated std_msgs/Bool true" output="screen" /> 
+ 
+</launch>

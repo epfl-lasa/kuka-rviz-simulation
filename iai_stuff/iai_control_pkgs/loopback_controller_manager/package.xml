@@ -1,0 +1,44 @@
+<package>
+  <name>loopback_controller_manager </name>
+  <version>0.1.0</version>
+  <description>
+    Controller manager that does a very simple simulation of joints:
+    It just "loops back" effort to joint velocity / position.
+  </description>
+
+  <author email="kresse@in.tum.de">Ingo Kresse</author>
+  <author email="georg.bartels@cs.uni-bremen.de">Georg Bartels</author>
+
+  <maintainer email="georg.bartels@cs.uni-bremen.de">Georg Bartels</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">https://github.com/code-iai/loopback_controller_manager/wiki</url>
+  <url type="bugtracker">https://github.com/code-iai/loopback_controller_manager/issues</url>
+  <url type="repository">https://github.com/code-iai/loopback_controller_manager</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!-- for loopback controller manager -->
+  <build_depend>roscpp</build_depend>
+  <build_depend>pr2_hardware_interface</build_depend>
+  <build_depend>pr2_controller_manager</build_depend>
+  <build_depend>pr2_mechanism_model</build_depend>
+  <build_depend>urdf</build_depend>
+  <build_depend>boost</build_depend>
+  <!-- for odometry simulation -->
+  <build_depend>nav_msgs</build_depend>
+  <build_depend>tf</build_depend>
+
+  <!-- for loopback controller manager -->
+  <run_depend>roscpp</run_depend> 
+  <run_depend>pr2_hardware_interface</run_depend>
+  <run_depend>pr2_controller_manager</run_depend>
+  <run_depend>pr2_mechanism_model</run_depend>
+  <run_depend>urdf</run_depend>
+  <run_depend>boost</run_depend>
+  <!-- for odometry simulation -->
+  <run_depend>nav_msgs</run_depend>
+  <run_depend>tf</run_depend>
+
+</package>

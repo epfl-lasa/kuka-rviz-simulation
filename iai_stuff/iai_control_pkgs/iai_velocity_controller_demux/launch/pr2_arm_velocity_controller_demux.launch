@@ -1,0 +1,25 @@
+<launch>
+  <node pkg="iai_velocity_controller_demux" type="iai_pr2_velocity_controller_demux"
+      name="pr2_l_arm_vel_ctrl_demux">
+    <remap from="~in_topic" to="/l_arm_vel/command"/>
+    <remap from="~shoulder_pan" to="/l_shoulder_pan_velocity_controller/command"/>
+    <remap from="~shoulder_lift" to="/l_shoulder_lift_velocity_controller/command"/>
+    <remap from="~upper_arm_roll" to="/l_upper_arm_roll_velocity_controller/command"/>
+    <remap from="~elbow_flex" to="/l_elbow_flex_velocity_controller/command"/>
+    <remap from="~forearm_roll" to="/l_forearm_roll_velocity_controller/command"/>
+    <remap from="~wrist_flex" to="/l_wrist_flex_velocity_controller/command"/>
+    <remap from="~wrist_roll" to="/l_wrist_roll_velocity_controller/command"/>
+  </node>
+
+  <node pkg="iai_velocity_controller_demux" type="iai_pr2_velocity_controller_demux"
+      name="pr2_r_arm_vel_ctrl_demux">
+    <remap from="~in_topic" to="/r_arm_vel/command"/>
+    <remap from="~shoulder_pan" to="/r_shoulder_pan_velocity_controller/command"/>
+    <remap from="~shoulder_lift" to="/r_shoulder_lift_velocity_controller/command"/>
+    <remap from="~upper_arm_roll" to="/r_upper_arm_roll_velocity_controller/command"/>
+    <remap from="~elbow_flex" to="/r_elbow_flex_velocity_controller/command"/>
+    <remap from="~forearm_roll" to="/r_forearm_roll_velocity_controller/command"/>
+    <remap from="~wrist_flex" to="/r_wrist_flex_velocity_controller/command"/>
+    <remap from="~wrist_roll" to="/r_wrist_roll_velocity_controller/command"/>
+  </node>
+</launch>

@@ -1,0 +1,13 @@
+- git: {local-name: iai_control_pkgs, uri: 'git@github.com:code-iai/iai_control_pkgs.git'}
+- git: {local-name: iai_common_msgs, uri: 'git@github.com:code-iai/iai_common_msgs.git'}
+- git: {local-name: iai_robots, uri: 'git@github.com:code-iai/iai_robots.git'}
+- git: {local-name: cram_bridge, uri: 'git@github.com:cram-code/cram_bridge.git'}
+- git: {local-name: cram_highlevel, uri: 'git@github.com:cram-code/cram_highlevel.git'}
+- git: {local-name: cram_physics, uri: 'git@github.com:cram-code/cram_physics.git'}
+- git: {local-name: cram_3rdparty, uri: 'git@github.com:cram-code/cram_3rdparty.git'}
+- git: {local-name: cram_core, uri: 'git@github.com:cram-code/cram_core.git'}
+- git: {local-name: designator_integration_lisp, uri: 'git@github.com:code-iai/designator_integration_lisp.git'}
+- git: {local-name: roslisp_common, uri: 'git@github.com:ros/roslisp_common.git'}
+- git: {local-name: cram_pr2, uri: 'git@github.com:cram-code/cram_pr2.git'}
+- git: {local-name: pr2_robot, uri: 'git@github.com:PR2/pr2_robot.git'}
+- git: {local-name: cl_robotics_libs, uri: 'git@github.com:cram-code/cl_robotics_libs.git'}

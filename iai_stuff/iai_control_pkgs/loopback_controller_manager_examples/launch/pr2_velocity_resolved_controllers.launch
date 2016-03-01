@@ -1,0 +1,10 @@
+<launch>
+
+  <include file="$(find loopback_controller_manager_examples)/launch/pr2_loopback_no_controllers.launch"/>
+
+  <!-- write desired start configuration on parameter server -->
+  <rosparam command="load" file="$(find loopback_controller_manager_examples)/config/pr2_start_config.yaml" ns="loopback_controllers"/> 
+
+  <include file="$(find iai_robot_mechanism_controllers)/launch/pr2_multi_vel_load.launch"/>
+
+</launch>

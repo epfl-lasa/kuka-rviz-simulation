@@ -1,0 +1,11 @@
+# A service call to carry out an inverse kinematics computation
+# The inverse kinematics request
+iai_kinematics_msgs/PositionIKRequest ik_request
+# Maximum allowed time for IK calculation
+duration timeout
+---
+# The returned solution 
+# (in the same order as the list of joints specified in the IKRequest message)
+iai_kinematics_msgs/RobotState solution
+
+iai_kinematics_msgs/ErrorCodes error_code

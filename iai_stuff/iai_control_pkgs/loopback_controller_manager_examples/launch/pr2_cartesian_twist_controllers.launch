@@ -1,0 +1,65 @@
+<launch>
+  <include file="$(find loopback_controller_manager)/launch/pr2_loopback_no_controllers.launch"7>
+
+  <!--param name="/use_sim_time" value="false" /-->
+
+  <!--include file="$(find pr2_description)/robots/upload_pr2.launch" /-->
+
+  <!-- start loopback controller manager --> 
+  <!--node name="loopback_controllers" type="loopback_controller_manager" pkg="loopback_controller_manager" output="screen"> 
+    <param name="dt" value="0.003" />
+    <param name="damping" value="1.0" />
+    <rosparam ns="joints">
+      name: ['torso_lift_joint', 'head_tilt_joint', 'r_shoulder_lift_joint', 'r_elbow_flex_joint', 'r_wrist_flex_joint', 'l_shoulder_lift_joint', 'l_elbow_flex_joint', 'l_wrist_flex_joint']
+      position: [0.012, 0.20, 0.027, -0.40, -0.66, 0.027, -0.40, -0.66]
+
+    </rosparam>
+  </node-->
+
+  <!-- start joint_states to tf transformer -->
+  <node pkg="robot_state_chain_publisher" type="state_chain_publisher" name="robot_state_publisher" output="log" />
+
+
+<!--  <node name="unspawn_arms"
+        pkg="pr2_controller_manager" type="unspawner"
+        args="l_arm_controller r_arm_controller" />
+-->
+
+  <rosparam ns="r_cart_twist">
+  type: robot_mechanism_controllers/CartesianTwistController
+  root_name: torso_lift_link
+  tip_name: r_gripper_tool_frame
+  fb_trans:
+    p: 20.0
+    i: 0.5
+    d: 0.0
+    i_clamp: 1.0
+  fb_rot:
+    p: 0.5
+    i: 0.1
+    d: 0.0
+    i_clamp: 0.2
+  </rosparam>
+
+  <rosparam ns="l_cart_twist">
+  type: robot_mechanism_controllers/CartesianTwistController
+  root_name: torso_lift_link
+  tip_name: l_gripper_tool_frame
+  fb_trans:
+    p: 20.0
+    i: 0.5
+    d: 0.0
+    i_clamp: 1.0
+  fb_rot:
+    p: 0.5
+    i: 0.1
+    d: 0.0
+    i_clamp: 0.2
+  </rosparam>
+
+
+  <node name="spawn_cart"
+        pkg="pr2_controller_manager" type="spawner"
+        args="l_cart_twist r_cart_twist" />
+
+</launch>

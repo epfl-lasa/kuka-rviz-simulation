@@ -1,0 +1,23 @@
+<launch>
+  <rosparam command="load" file="$(find pr2_controller_configuration)/pr2_joint_effort_controllers.yaml"/>
+ 
+  <node name="effort_controllers_spawner" pkg="pr2_controller_manager" type="spawner"
+      output="screen" args="--stopped 
+                            torso_lift_effort_controller
+                            r_shoulder_pan_effort_controller
+                            r_shoulder_lift_effort_controller
+                            r_upper_arm_roll_effort_controller
+                            r_elbow_flex_effort_controller
+                            r_forearm_roll_effort_controller
+                            r_wrist_flex_effort_controller
+                            r_wrist_roll_effort_controller
+                            l_shoulder_pan_effort_controller
+                            l_shoulder_lift_effort_controller
+                            l_upper_arm_roll_effort_controller
+                            l_elbow_flex_effort_controller
+                            l_forearm_roll_effort_controller
+                            l_wrist_flex_effort_controller
+                            l_wrist_roll_effort_controller
+                            r_gripper_effort_controller
+                            l_gripper_effort_controller"/>
+</launch>

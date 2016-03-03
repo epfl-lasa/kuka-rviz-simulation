@@ -2,8 +2,10 @@
 <launch>
 
    <!-- load up urdf to the parameter server -->
-   <include file="$(find kuka_lwr_bringup)/launch/upload_lwr2.launch"/>
-  
+   <arg name="urdf-name" default="kuka_lwr2_lasa.urdf.xacro"/>
+   <arg name="urdf-path" default="$(find kuka_lwr_description)/robots/$(arg urdf-name)"/>
+   <param name="robot_description" command="$(find xacro)/xacro.py '$(arg urdf-path)'" />
+
    <!-- Startup rqt_plot for all sensors (rviz, images, ft) -->  
    <node name="launch_rqt" pkg="kuka_lwr_bringup" type="launch_rqt.sh" />
 

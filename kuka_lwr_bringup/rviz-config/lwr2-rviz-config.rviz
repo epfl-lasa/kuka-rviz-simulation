@@ -32,7 +32,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: ""
+    SyncSource: Image
 Visualization Manager:
   Class: ""
   Displays:
@@ -97,13 +97,136 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: false
+        calib_right_arm_base_link:
+          Value: true
+        camera_depth_frame:
+          Value: true
+        camera_depth_optical_frame:
+          Value: true
+        camera_link:
+          Value: true
+        camera_rgb_frame:
+          Value: true
+        camera_rgb_optical_frame:
+          Value: true
+        curr_ee_tf:
+          Value: true
+        des_ee_tf:
+          Value: true
+        kinect2_ir_frame:
+          Value: true
+        kinect2_ir_optical_frame:
+          Value: true
+        kinect2_link:
+          Value: true
+        kinect2_rgb_frame:
+          Value: true
+        kinect2_rgb_optical_frame:
+          Value: true
+        leg1_link:
+          Value: true
+        leg2_link:
+          Value: true
+        leg3_link:
+          Value: true
+        leg4_link:
+          Value: true
+        op_leg1_link:
+          Value: true
+        op_leg2_link:
+          Value: true
+        op_leg3_link:
+          Value: true
+        op_leg4_link:
+          Value: true
+        op_table_top_link:
+          Value: true
+        pole2_base_link:
+          Value: true
+        pole2_link:
+          Value: true
+        pole_base_link:
+          Value: true
+        pole_link:
+          Value: true
+        right_arm_1_link:
+          Value: true
+        right_arm_2_link:
+          Value: true
+        right_arm_3_link:
+          Value: true
+        right_arm_4_link:
+          Value: true
+        right_arm_5_link:
+          Value: true
+        right_arm_6_link:
+          Value: true
+        right_arm_7_link:
+          Value: true
+        right_arm_flange_link:
+          Value: true
+        table_top_link:
+          Value: true
+        world_frame:
+          Value: true
       Marker Scale: 0.5
       Name: TF
       Show Arrows: false
       Show Axes: true
-      Show Names: false
+      Show Names: true
       Tree:
-        {}
+        table_top_link:
+          leg1_link:
+            {}
+          leg2_link:
+            {}
+          leg3_link:
+            {}
+          leg4_link:
+            calib_right_arm_base_link:
+              right_arm_1_link:
+                right_arm_2_link:
+                  right_arm_3_link:
+                    right_arm_4_link:
+                      right_arm_5_link:
+                        right_arm_6_link:
+                          right_arm_7_link:
+                            right_arm_flange_link:
+                              {}
+              world_frame:
+                camera_link:
+                  camera_depth_frame:
+                    camera_depth_optical_frame:
+                      {}
+                  camera_rgb_frame:
+                    camera_rgb_optical_frame:
+                      {}
+                curr_ee_tf:
+                  {}
+                des_ee_tf:
+                  {}
+                kinect2_link:
+                  kinect2_ir_frame:
+                    kinect2_ir_optical_frame:
+                      {}
+                  kinect2_rgb_frame:
+                    kinect2_rgb_optical_frame:
+                      {}
+          op_table_top_link:
+            op_leg1_link:
+              {}
+            op_leg2_link:
+              {}
+            op_leg3_link:
+              {}
+            op_leg4_link:
+              {}
+          pole2_base_link:
+            pole2_link:
+              {}
+          pole_base_link:
+            pole_link:
+              {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -342,22 +465,22 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 3.45931
+      Distance: 4.58613
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.06
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.0522379
-        Y: 0.299937
-        Z: 0.534518
+        X: 0.0847651
+        Y: 0.169809
+        Z: 0.00450041
       Name: Current View
       Near Clip Distance: 0.01
-      Pitch: 0.455205
+      Pitch: 0.160205
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 3.62038
+      Yaw: 4.61538
     Saved: ~
 Window Geometry:
   Displays:
@@ -377,5 +500,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1199
-  X: 674
-  Y: 18
+  X: 74
+  Y: 32

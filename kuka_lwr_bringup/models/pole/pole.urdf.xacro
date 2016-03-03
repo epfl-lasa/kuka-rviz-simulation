@@ -24,7 +24,7 @@
   <property name="pole_base_thickness" value="0.05"/>
 
   <property name="pole_base_color" value="0 0 0 1" />
-  <property name="pole_color" value="100 100 100 1" />
+  <property name="pole_color" value="0 0 0 1" />
 
   <property name="M_PI" value="3.1415926535897931" />
 

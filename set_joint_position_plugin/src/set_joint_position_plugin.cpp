@@ -153,7 +153,7 @@ void set_joint_position_plugin::Load(physics::ModelPtr _model, sdf::ElementPtr _
 void set_joint_position_plugin::CallBackMethod(const sensor_msgs::JointState _msg)
 {
   this->lock_.lock();
-  ROS_INFO_STREAM( "Getting a new position" );
+  // ROS_INFO_STREAM( "Getting a new position" );
   set_joint_state_ =  _msg;
   this->lock_.unlock();
 

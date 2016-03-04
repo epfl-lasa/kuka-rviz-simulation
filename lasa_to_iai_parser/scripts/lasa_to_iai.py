@@ -22,9 +22,9 @@ class JS_converter(object):
         self.init_work_variables()    
         self.vel_output_topic_type = MultiJointVelocityImpedanceCommand
 
-        self.js_sub = rospy.Subscriber("/l_arm_pos_controller/joint_imp_cmd", numpy_msg(JointStateImpedance), self.js_cb, queue_size=3, tcp_nodelay=True)
-        self.out_js_pos_pub = rospy.Publisher("/l_arm_pos_controller/command", Float32MultiArray, queue_size=3, tcp_nodelay=True, latch=False)
-        self.out_js_vel_pub = rospy.Publisher("/l_arm_vel/command", numpy_msg(self.vel_output_topic_type), queue_size=3, tcp_nodelay=True, latch=False)
+        self.js_sub = rospy.Subscriber("/KUKA/joint_imp_cmd", numpy_msg(JointStateImpedance), self.js_cb, queue_size=3, tcp_nodelay=True)
+        self.out_js_pos_pub = rospy.Publisher("/r_arm_pos_controller/command", Float32MultiArray, queue_size=3, tcp_nodelay=True, latch=False)
+        self.out_js_vel_pub = rospy.Publisher("/r_arm_vel/command", numpy_msg(self.vel_output_topic_type), queue_size=3, tcp_nodelay=True, latch=False)
 
     def init_work_variables(self):
         self.js_position = numpy.array([0.0] * self.num_dof, dtype=numpy.float32) 

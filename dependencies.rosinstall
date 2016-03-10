@@ -1,6 +1,6 @@
 - git:
-    local-name: kuka_interface
-    uri: https://github.com/nbfigueroa/kuka_interface_packages.git
+    local-name: kuka_interface_package
+    uri: https://github.com/epfl-lasa/kuka_interface_packages.git
 - git:
     local-name: motion-generators
     uri: https://github.com/epfl-lasa/motion-generators.git

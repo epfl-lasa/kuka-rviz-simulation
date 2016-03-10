@@ -4,3 +4,6 @@
 - git:
     local-name: motion-generators
     uri: https://github.com/epfl-lasa/motion-generators.git
+- git:
+    local-name: robot-toolkit
+    uri: https://github.com/epfl-lasa/robot-toolkit.git

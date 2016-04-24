@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="kuka_bimanual_lwr_description">
+	<xacro:include filename="$(find kuka_lwr_description)/defs/materials.xml"/>
+
+	<xacro:include filename="$(find kuka_lwr_bringup)/models/table/table3a.urdf.xacro" />
+	<robot_table name="right">
+      <origin xyz="0 0 0" rpy=" 0 0 0"/>
+    </robot_table>
+
+	<xacro:include filename="$(find kuka_lwr_description)/urdf/kuka_lwr_arm_lasa.urdf.xacro"/>
+	<kuka_lwr_arm parent="right_leg4_link" name="right">
+          <origin xyz="0.45 0.45 0" rpy=" 0 0 1.56"/>
+        </kuka_lwr_arm>
+
+	<xacro:include filename="$(find kuka_lwr_bringup)/models/table/table3b.urdf.xacro" />
+	<robot_dep_table parent="right_table_top_link" name="left">
+      <origin xyz="1.07 0 0" rpy=" 0 0 0"/>
+    </robot_dep_table>
+
+	<xacro:include filename="$(find kuka_lwr_description)/urdf/kuka_lwr_arm_lasa.urdf.xacro"/>	
+	<kuka_lwr_arm parent="left_leg4_link" name="left">
+          <origin xyz="0.45 0.38 0" rpy=" 0 0 1.56"/>
+        </kuka_lwr_arm>
+
+	<xacro:include filename="$(find kuka_lwr_bringup)/models/pole/pole_kinect_table.urdf.xacro" />
+	<joint name="pole2_base_joint" type="fixed" >
+	    <parent link="right_table_top_link" />
+	    <origin xyz="0.53 0.25 ${pole2_base_thickness/2}" rpy="0 0 0" />
+	    <child link="pole2_base_link" />
+	</joint>    
+
+
+</robot>

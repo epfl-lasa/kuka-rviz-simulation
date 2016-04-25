@@ -8,6 +8,7 @@
   <arg name="ft_sensors"                  default="false"/>
   <arg name="tool_ns"                     default="tool"/>
   <arg name="hand_ns"                     default="hand"/>
+  <arg name="not_bag"                     default="true"/>
 
   <!-- load up urdf to the parameter server -->
   <arg name="default-starting-config"     default="1"/>
@@ -39,26 +40,30 @@
   
   <!-- Launch FT Sensors if necessary -->
   <group if="$(arg ft_sensors)">
-    <group ns="$(arg tool_ns)">  
-      <include file="$(find netft_rdt_driver)/launch/ft_sensor.launch">
-        <arg  name="ip_address"  default="128.178.145.98"/>
-        <arg  name="bias"        default="False"/>
-        <arg  name="rate"        default="100"/>  
-        <arg  name="frame_id"    default="left_arm_flange_link"/>
-      </include>
-    </group>
-   <!-- Startup rqt_plot for sensor readings -->  
-   <node name="launch_tool_rqt" pkg="kuka_lwr_bringup" type="launch_tool_rqt.sh" />
+    <group if="$(arg not_bag)">
 
+      <group ns="$(arg tool_ns)">  
+        <include file="$(find netft_rdt_driver)/launch/ft_sensor.launch">
+          <arg  name="ip_address"  default="128.178.145.98"/>
+          <arg  name="bias"        default="False"/>
+          <arg  name="rate"        default="100"/>  
+          <arg  name="frame_id"    default="left_arm_flange_link"/>
+        </include>
+      </group>
 
-    <group ns="$(arg hand_ns)">  
-      <include file="$(find netft_rdt_driver)/launch/ft_sensor.launch">
-        <arg  name="ip_address"  default="128.178.145.248"/>
-        <arg  name="bias"        default="False"/>
-        <arg  name="rate"        default="100"/>  
-        <arg  name="frame_id"    default="right_arm_flange_link"/>
-      </include>
+      <group ns="$(arg hand_ns)">  
+        <include file="$(find netft_rdt_driver)/launch/ft_sensor.launch">
+          <arg  name="ip_address"  default="128.178.145.248"/>
+          <arg  name="bias"        default="False"/>
+          <arg  name="rate"        default="100"/>  
+          <arg  name="frame_id"    default="right_arm_flange_link"/>
+        </include>
+      </group>
+
     </group>
+    
+    <!-- Startup rqt_plot for sensor readings -->  
+    <node name="launch_tool_rqt" pkg="kuka_lwr_bringup" type="launch_tool_rqt.sh" />
     <node name="launch_hand_rqt" pkg="kuka_lwr_bringup" type="launch_hand_rqt.sh" />
   </group>
 </launch>

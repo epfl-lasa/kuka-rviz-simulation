@@ -6,11 +6,11 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
-        - /TF1
         - /TF1/Frames1
-        - /Image1
+        - /WrenchStamped1
+        - /WrenchStamped2
       Splitter Ratio: 0.5
-    Tree Height: 503
+    Tree Height: 359
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -29,7 +29,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: DepthCloud
+    SyncSource: Image
 Visualization Manager:
   Class: ""
   Displays:
@@ -140,6 +140,11 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        op_table_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         pole2_base_link:
           Alpha: 1
           Show Axes: false
@@ -246,12 +251,6 @@ Visualization Manager:
           Value: true
         kinect_pole_link:
           Value: true
-        l_ee_tf:
-          Value: true
-        left_arm/curr_ee_tf:
-          Value: true
-        left_arm/des_ee_tf:
-          Value: true
         left_arm_1_link:
           Value: true
         left_arm_2_link:
@@ -268,8 +267,6 @@ Visualization Manager:
           Value: true
         left_arm_flange_link:
           Value: true
-        left_attractor:
-          Value: true
         left_leg1_link:
           Value: true
         left_leg2_link:
@@ -280,19 +277,13 @@ Visualization Manager:
           Value: true
         left_table_top_link:
           Value: true
+        op_table_link:
+          Value: true
         pole2_base_link:
           Value: true
         pole2_link:
           Value: true
         pole2_top_link:
-          Value: true
-        r_ee_tf:
-          Value: true
-        real_object:
-          Value: true
-        right_arm/curr_ee_tf:
-          Value: true
-        right_arm/des_ee_tf:
           Value: true
         right_arm_1_link:
           Value: true
@@ -310,8 +301,6 @@ Visualization Manager:
           Value: true
         right_arm_flange_link:
           Value: true
-        right_attractor:
-          Value: true
         right_leg1_link:
           Value: true
         right_leg2_link:
@@ -321,10 +310,6 @@ Visualization Manager:
         right_leg4_link:
           Value: true
         right_table_top_link:
-          Value: true
-        task_frame:
-          Value: true
-        virtual_object:
           Value: true
         world_frame:
           Value: true
@@ -344,10 +329,6 @@ Visualization Manager:
               {}
             left_leg4_link:
               calib_left_arm_base_link:
-                left_arm/curr_ee_tf:
-                  {}
-                left_arm/des_ee_tf:
-                  {}
                 left_arm_1_link:
                   left_arm_2_link:
                     left_arm_3_link:
@@ -358,6 +339,8 @@ Visualization Manager:
                               left_arm_flange_link:
                                 {}
           pole2_base_link:
+            op_table_link:
+              {}
             pole2_link:
               pole2_top_link:
                 kinect_pole_link:
@@ -370,18 +353,6 @@ Visualization Manager:
             {}
           right_leg4_link:
             calib_right_arm_base_link:
-              l_ee_tf:
-                {}
-              left_attractor:
-                {}
-              r_ee_tf:
-                {}
-              real_object:
-                {}
-              right_arm/curr_ee_tf:
-                {}
-              right_arm/des_ee_tf:
-                {}
               right_arm_1_link:
                 right_arm_2_link:
                   right_arm_3_link:
@@ -391,12 +362,6 @@ Visualization Manager:
                           right_arm_7_link:
                             right_arm_flange_link:
                               {}
-              right_attractor:
-                {}
-              task_frame:
-                {}
-              virtual_object:
-                {}
               world_frame:
                 kinect2_link:
                   kinect2_ir_frame:
@@ -412,7 +377,7 @@ Visualization Manager:
       Marker Topic: /left_vo
       Name: Marker
       Namespaces:
-        basic_shapes: true
+        {}
       Queue Size: 100
       Value: true
     - Class: rviz/Marker
@@ -420,7 +385,7 @@ Visualization Manager:
       Marker Topic: /real_object
       Name: Marker
       Namespaces:
-        basic_shapes: true
+        {}
       Queue Size: 100
       Value: true
     - Class: rviz/Marker
@@ -428,7 +393,7 @@ Visualization Manager:
       Marker Topic: /right_vo
       Name: Marker
       Namespaces:
-        basic_shapes: true
+        {}
       Queue Size: 100
       Value: true
     - Class: rviz/Marker
@@ -436,7 +401,7 @@ Visualization Manager:
       Marker Topic: /virtual_object
       Name: Marker
       Namespaces:
-        basic_shapes: true
+        {}
       Queue Size: 100
       Value: true
     - Alpha: 1
@@ -489,6 +454,32 @@ Visualization Manager:
       Transport Hint: raw
       Unreliable: false
       Value: true
+    - Alpha: 0.75
+      Arrow Width: 0.1
+      Class: rviz/WrenchStamped
+      Enabled: true
+      Force Arrow Scale: 0.1
+      Force Color: 204; 51; 51
+      History Length: 1
+      Name: WrenchStamped
+      Topic: /tool/ft_sensor/netft_data
+      Torque Arrow Scale: 0.3
+      Torque Color: 204; 204; 51
+      Unreliable: true
+      Value: true
+    - Alpha: 0.75
+      Arrow Width: 0.1
+      Class: rviz/WrenchStamped
+      Enabled: true
+      Force Arrow Scale: 0.02
+      Force Color: 204; 51; 51
+      History Length: 1
+      Name: WrenchStamped
+      Topic: /hand/ft_sensor/netft_data
+      Torque Arrow Scale: 0.07
+      Torque Color: 204; 204; 51
+      Unreliable: false
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -513,22 +504,22 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 2.49249
+      Distance: 1.88153
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.06
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.103239
-        Y: -0.51034
-        Z: 0.0285355
+        X: -0.172356
+        Y: -0.545126
+        Z: -0.0302427
       Name: Current View
       Near Clip Distance: 0.01
-      Pitch: 0.349797
+      Pitch: 0.854798
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 3.1654
+      Yaw: 3.1254
     Saved: ~
 Window Geometry:
   Displays:
@@ -538,7 +529,7 @@ Window Geometry:
   Hide Right Dock: false
   Image:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd00000004000000000000016a00000286fc0200000008fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006400fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073000000002800000286000000dd00fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261000000010000010f000002c4fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a005600690065007700730000000028000002c4000000b000fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000003290000016ffc0100000008fb0000000a0049006d0061006700650100000000000003290000005c00fffffffb0000000a0049006d0061006700650100000000000003ae0000000000000000fb0000000a0049006d0061006700650100000000000004510000000000000000fb0000000a0049006d0061006700650000000000000001530000000000000000fb0000000a0049006d0061006700650000000000000001e70000000000000000fb0000000a0049006d0061006700650000000000000003dd0000000000000000fb0000000800540069006d00650000000000000004b0000002f600fffffffb0000000800540069006d00650100000000000004500000000000000000000003290000028600000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd00000004000000000000016a00000286fc0200000008fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006400fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073000000002800000286000000dd00fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261000000010000010f000002c4fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a005600690065007700730000000028000002c4000000b000fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000003c60000016ffc0100000008fb0000000a0049006d0061006700650100000000000003c60000005c00fffffffb0000000a0049006d0061006700650100000000000003ae0000000000000000fb0000000a0049006d0061006700650100000000000004510000000000000000fb0000000a0049006d0061006700650000000000000001530000000000000000fb0000000a0049006d0061006700650000000000000001e70000000000000000fb0000000a0049006d0061006700650000000000000003dd0000000000000000fb0000000800540069006d00650000000000000004b0000002f600fffffffb0000000800540069006d00650100000000000004500000000000000000000003c60000028600000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Time:
@@ -547,6 +538,6 @@ Window Geometry:
     collapsed: false
   Views:
     collapsed: false
-  Width: 809
-  X: 937
-  Y: 61
+  Width: 966
+  X: 923
+  Y: 14

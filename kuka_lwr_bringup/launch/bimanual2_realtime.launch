@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+<launch>
+
+  <!-- Required argument --> 
+  <arg name="urdf-name"                   default="kuka_bimanual2_lwr_lasa.urdf.xacro"/>  
+  <arg name="load-rviz"                   default="true"/>
+  <arg name="rviz-config-path"            default="$(find kuka_lwr_bringup)/rviz-config/bimanual2-rviz-config.rviz"/>
+  <arg name="ft_sensors"                  default="false"/>
+  <arg name="tool_ns"                     default="tool"/>
+  <arg name="hand_ns"                     default="hand"/>
+
+  <!-- load up urdf to the parameter server -->
+  <arg name="default-starting-config"     default="1"/>
+  <arg name="urdf-path"                   default="$(find kuka_lwr_description)/robots/$(arg urdf-name)"/>
+  <param name="robot_description"         command="$(find xacro)/xacro.py '$(arg urdf-path)'" />  
+
+  <!-- some global variable -->
+  <param name="/use_sim_time"           value="false"/>
+  
+  <!-- load up robot state publisher -->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="log" />
+   
+  <!-- Aggregate Joint states -->
+   <node name="joint_state_publisher" type="joint_state_publisher" pkg="joint_state_publisher" output="screen">     
+      <param name="robot_description"         command="$(find xacro)/xacro.py '$(arg urdf-path)'" />  
+        <rosparam param="source_list">[/KUKA_RightArm/joint_states, /KUKA_LeftArm/joint_states]</rosparam>
+   </node>
+
+  <!-- Upload Kinect-Robot Base Calibrated Transform -->
+  <include file="$(find kuka_lwr_bringup)/launch/calibration/upload_frames4calibration.launch"/>
+
+  <!-- Startup RVIZ with given config -->
+  <group if="$(arg load-rviz)">
+    <node name="rviz" pkg="rviz" type="rviz"  args="-d $(arg rviz-config-path)"  required="true" />
+  </group>
+  
+  <!-- Load LASA to IAI joint state parser -->
+  <node name="lasa_bimanual_to_iai_parser" pkg="lasa_to_iai_parser" type="lasa_bimanual_to_iai.py" output="screen"/>
+  
+  <!-- Launch FT Sensors if necessary -->
+  <group if="$(arg ft_sensors)">
+    <group ns="$(arg tool_ns)">  
+      <include file="$(find netft_rdt_driver)/launch/ft_sensor.launch">
+        <arg  name="ip_address"  default="128.178.145.98"/>
+        <arg  name="bias"        default="False"/>
+        <arg  name="rate"        default="100"/>  
+        <arg  name="frame_id"    default="left_arm_flange_link"/>
+      </include>
+    </group>
+   <!-- Startup rqt_plot for sensor readings -->  
+   <node name="launch_tool_rqt" pkg="kuka_lwr_bringup" type="launch_tool_rqt.sh" />
+
+
+    <group ns="$(arg hand_ns)">  
+      <include file="$(find netft_rdt_driver)/launch/ft_sensor.launch">
+        <arg  name="ip_address"  default="128.178.145.248"/>
+        <arg  name="bias"        default="False"/>
+        <arg  name="rate"        default="100"/>  
+        <arg  name="frame_id"    default="right_arm_flange_link"/>
+      </include>
+    </group>
+    <node name="launch_hand_rqt" pkg="kuka_lwr_bringup" type="launch_hand_rqt.sh" />
+  </group>
+</launch>
+

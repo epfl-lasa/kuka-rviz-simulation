@@ -5,18 +5,7 @@
     <arg name="urdf-name"                   value="kuka_bimanual2_lwr_lasa.urdf.xacro"/>
     <arg name="rviz-config-path"            value="$(find kuka_lwr_bringup)/rviz-config/bimanual2-rviz-config.rviz"/>  
   </include>
-
-  <!--include file="$(find epfl_allegro_launchers)/launch/epfl_right.launch" -->
-  <!--include file="$(find bhand_controller)/launch/bhand_controller.launch"-->
- <!-- 
-  <node pkg="using_markers" type="basic_shapes" name="basic_shapes" />
-  <node pkg="box_tf_to_tp" type="box_tf_to_tp" name="box_tf_to_tp"/>
-  <node pkg="hand_comments" type="hand_comments" name="hand_comments" />
-  <node pkg="IIWA" type="simple_example" name="simple_example" /> -->
-
-
-  <!--node pkg="ball" type="ball" name="ball" -->
-
+  
   <!-- Load LASA to IAI joint state parser -->
   <node name="lasa_bimanual_to_iai_parser" pkg="lasa_to_iai_parser" type="lasa_bimanual_to_iai.py" output="screen"/>
   

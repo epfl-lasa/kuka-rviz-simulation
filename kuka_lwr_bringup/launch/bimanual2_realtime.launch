@@ -9,6 +9,7 @@
   <arg name="tool_ns"                     default="tool"/>
   <arg name="hand_ns"                     default="hand"/>
   <arg name="not_bag"                     default="true"/>
+  <arg name="vision"                      default="true"/>
 
   <!-- load up urdf to the parameter server -->
   <arg name="default-starting-config"     default="1"/>
@@ -37,9 +38,27 @@
   
   <!-- Load LASA to IAI joint state parser -->
   <node name="lasa_bimanual_to_iai_parser" pkg="lasa_to_iai_parser" type="lasa_bimanual_to_iai.py" output="screen"/>
-  
+
+  <!-- Launch Vision if necessary -->    
+  <group if="$(arg vision)">
+        <include file="$(find vision_pkg)/launch/track_objects.launch">    
+            <arg  name="local_ip"  default="128.178.145.215"/>
+        </include>        
+
+        <node pkg="tf" type="static_transform_publisher" name="robotworld2vision" args="-0.45 -0.18 0.01 -3.14 0 1.56 world_frame world 500" />
+    
+  </group>
+
+
+
   <!-- Launch FT Sensors if necessary -->
   <group if="$(arg ft_sensors)">
+
+    <node pkg="tf" type="static_transform_publisher" name="tool2ft" args="-0.16 -0.02 0.005 1.56 0 -1.56 Peel_tool_root Tool_ft 500" />
+
+    <node pkg="tf" type="static_transform_publisher" name="hand2ft" args="0 0 0.05 1.56 0 0 right_arm_flange_link Hand_ft 500" />
+
+
     <group if="$(arg not_bag)">
 
       <group ns="$(arg tool_ns)">  
@@ -47,7 +66,7 @@
           <arg  name="ip_address"  default="128.178.145.98"/>
           <arg  name="bias"        default="False"/>
           <arg  name="rate"        default="100"/>  
-          <arg  name="frame_id"    default="left_arm_flange_link"/>
+          <arg  name="frame_id"    default="Tool_ft"/>
         </include>
       </group>
 
@@ -56,12 +75,12 @@
           <arg  name="ip_address"  default="128.178.145.248"/>
           <arg  name="bias"        default="False"/>
           <arg  name="rate"        default="100"/>  
-          <arg  name="frame_id"    default="right_arm_flange_link"/>
+          <arg  name="frame_id"    default="Hand_ft"/>
         </include>
       </group>
 
     </group>
-    
+
     <!-- Startup rqt_plot for sensor readings -->  
     <node name="launch_tool_rqt" pkg="kuka_lwr_bringup" type="launch_tool_rqt.sh" />
     <node name="launch_hand_rqt" pkg="kuka_lwr_bringup" type="launch_hand_rqt.sh" />

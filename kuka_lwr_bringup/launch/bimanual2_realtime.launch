@@ -9,7 +9,7 @@
   <arg name="tool_ns"                     default="tool"/>
   <arg name="hand_ns"                     default="hand"/>
   <arg name="not_bag"                     default="true"/>
-  <arg name="vision"                      default="true"/>
+  <arg name="vision"                      default="false"/>
 
   <!-- load up urdf to the parameter server -->
   <arg name="default-starting-config"     default="1"/>
@@ -54,7 +54,10 @@
   <!-- Launch FT Sensors if necessary -->
   <group if="$(arg ft_sensors)">
 
-    <node pkg="tf" type="static_transform_publisher" name="tool2ft" args="-0.16 -0.02 0.005 1.56 0 -1.56 Peel_tool_root Tool_ft 500" />
+    <!-- <node pkg="tf" type="static_transform_publisher" name="tool2ft" args="-0.16 -0.02 0.005 1.56 0 -1.56 Peel_tool_root Tool_ft 500" /> -->
+
+
+    <node pkg="tf" type="static_transform_publisher" name="tool2ft" args="0.0 0.0 0.14 0.0 0.0 0.0 left_arm_flange_link Tool_ft 500" />
 
     <node pkg="tf" type="static_transform_publisher" name="hand2ft" args="0 0 0.05 1.56 0 0 right_arm_flange_link Hand_ft 500" />
 

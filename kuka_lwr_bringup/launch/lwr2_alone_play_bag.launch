@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<launch>
+
+  <!-- Set Robot model/rviz configuration path-->
+  <arg name="urdf-name"                   default="kuka_lwr2_alone_lasa.urdf.xacro"/>
+  <arg name="load-rviz"                   default="true"/>
+  <arg name="rviz-config-path"            default="$(find kuka_lwr_bringup)/rviz-config/lwr2-rviz-config.rviz"/>
+  <arg name="launch-gazebo"               default="true"/>
+
+  <!-- Load KUKA joint state visualization -->
+  <include file="$(find kuka_lwr_bringup)/launch/load_kuka_viz.launch">
+  <!-- Override Argument to desired robot model -->
+    <arg name="urdf-name"                 value="$(arg urdf-name)"/>
+  </include>
+
+  <!-- Upload Kinect-Robot Base Calibrated Transform -->
+  <!-- <include file="$(find kuka_lwr_bringup)/launch/calibration/world_to_camera_tf_alone.launch"/> -->
+  <include file="$(find kuka_lwr_bringup)/launch/calibration/upload_frames4calibration.launch"/>
+  
+  <!-- Startup RVIZ with given config -->
+  <group if="$(arg load-rviz)">
+    <node name="rviz" pkg="rviz" type="rviz"  args="-d $(arg rviz-config-path)"  required="true" />
+  </group>
+  
+  <!-- GAZEBO SHIT -->
+  <group if="$(arg launch-gazebo)">
+      <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
+      <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find lwr_gazebo)/worlds/empty_world.world"/>
+        <!-- more default parameters can be changed here -->
+      </include>
+      
+       <!-- Spawn a robot into Gazebo -->
+       <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model arm_base" />
+  </group>
+
+</launch>

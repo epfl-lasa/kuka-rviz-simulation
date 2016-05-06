@@ -8,12 +8,10 @@ Panels:
         - /Status1
         - /DepthCloud1/Auto Size1
         - /DepthCloud1/Occlusion Compensation1
-        - /TF1
         - /TF1/Frames1
-        - /DepthCloud2/Auto Size1
-        - /Image4
+        - /Image1/Status1
       Splitter Ratio: 0.42953
-    Tree Height: 78
+    Tree Height: 493
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -67,13 +65,13 @@ Visualization Manager:
       Channel Name: intensity
       Class: rviz/DepthCloud
       Color: 255; 255; 255
-      Color Image Topic: /kinect2/rgb_lowres/image
+      Color Image Topic: /camera/rgb/image_color
       Color Transformer: RGB8
       Color Transport Hint: raw
       Decay Time: 0
-      Depth Map Topic: /kinect2/depth_lowres/image
+      Depth Map Topic: /camera/depth_registered/image_raw
       Depth Map Transport Hint: raw
-      Enabled: false
+      Enabled: true
       Invert Rainbow: false
       Max Color: 255; 255; 255
       Max Intensity: 4096
@@ -91,7 +89,7 @@ Visualization Manager:
       Topic Filter: true
       Use Fixed Frame: true
       Use rainbow: true
-      Value: false
+      Value: true
     - Class: rviz/TF
       Enabled: true
       Frame Timeout: 15
@@ -109,19 +107,7 @@ Visualization Manager:
           Value: true
         camera_rgb_optical_frame:
           Value: true
-        curr_ee_tf:
-          Value: true
-        des_ee_tf:
-          Value: true
-        kinect2_ir_frame:
-          Value: true
-        kinect2_ir_optical_frame:
-          Value: true
         kinect2_link:
-          Value: true
-        kinect2_rgb_frame:
-          Value: true
-        kinect2_rgb_optical_frame:
           Value: true
         leg1_link:
           Value: true
@@ -201,17 +187,8 @@ Visualization Manager:
                   camera_rgb_frame:
                     camera_rgb_optical_frame:
                       {}
-                curr_ee_tf:
-                  {}
-                des_ee_tf:
-                  {}
                 kinect2_link:
-                  kinect2_ir_frame:
-                    kinect2_ir_optical_frame:
-                      {}
-                  kinect2_rgb_frame:
-                    kinect2_rgb_optical_frame:
-                      {}
+                  {}
           op_table_top_link:
             op_leg1_link:
               {}
@@ -361,7 +338,7 @@ Visualization Manager:
       Visual Enabled: true
     - Class: rviz/Image
       Enabled: true
-      Image Topic: /camera/depth/image
+      Image Topic: /camera/depth_registered/image_raw
       Max Value: 1
       Median window: 5
       Min Value: 0
@@ -370,69 +347,9 @@ Visualization Manager:
       Queue Size: 2
       Transport Hint: raw
       Value: true
-    - Class: rviz/Image
-      Enabled: true
-      Image Topic: /kinect2/rgb_lowres/image
-      Max Value: 1
-      Median window: 5
-      Min Value: 0
-      Name: Image
-      Normalize Range: true
-      Queue Size: 2
-      Transport Hint: raw
-      Value: true
-    - Alpha: 1
-      Auto Size:
-        Auto Size Factor: 1
-        Value: true
-      Autocompute Intensity Bounds: true
-      Autocompute Value Bounds:
-        Max Value: 10
-        Min Value: -10
-        Value: true
-      Axis: Z
-      Channel Name: intensity
-      Class: rviz/DepthCloud
-      Color: 255; 255; 255
-      Color Image Topic: ""
-      Color Transformer: ""
-      Color Transport Hint: raw
-      Decay Time: 0
-      Depth Map Topic: /camera/depth/image
-      Depth Map Transport Hint: raw
-      Enabled: false
-      Invert Rainbow: false
-      Max Color: 255; 255; 255
-      Max Intensity: 4096
-      Min Color: 0; 0; 0
-      Min Intensity: 0
-      Name: DepthCloud
-      Occlusion Compensation:
-        Occlusion Time-Out: 30
-        Value: false
-      Position Transformer: ""
-      Queue Size: 5
-      Selectable: true
-      Size (Pixels): 3
-      Style: Flat Squares
-      Topic Filter: true
-      Use Fixed Frame: true
-      Use rainbow: true
-      Value: false
     - Class: rviz/Image
       Enabled: true
       Image Topic: /camera/rgb/image_color
-      Max Value: 1
-      Median window: 5
-      Min Value: 0
-      Name: Image
-      Normalize Range: true
-      Queue Size: 2
-      Transport Hint: raw
-      Value: true
-    - Class: rviz/Image
-      Enabled: true
-      Image Topic: /kinect2/depth_lowres/image
       Max Value: 1
       Median window: 5
       Min Value: 0
@@ -465,32 +382,32 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 4.58613
+      Distance: 4.77209
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.06
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.0847651
-        Y: 0.169809
-        Z: 0.00450041
+        X: -0.424751
+        Y: 0.533041
+        Z: 0.163395
       Name: Current View
       Near Clip Distance: 0.01
-      Pitch: 0.160205
+      Pitch: 0.180205
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 4.61538
+      Yaw: 3.95038
     Saved: ~
 Window Geometry:
   Displays:
-    collapsed: false
+    collapsed: true
   Height: 1071
-  Hide Left Dock: false
+  Hide Left Dock: true
   Hide Right Dock: false
   Image:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000400000000000001fc00000295fc020000000afb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006400fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c0061007900730000000028000000dd000000dd00fffffffb0000000a0049006d00610067006501000000280000014b0000001600fffffffb0000000a0049006d0061006700650100000179000001440000001600fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261000000010000010f000002c4fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a005600690065007700730000000028000002c4000000b000fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000004af0000014efc0100000004fb0000000a0049006d0061006700650100000000000002710000005c00fffffffb0000000a0049006d0061006700650100000277000002380000005c00fffffffb0000000800540069006d00650000000000000004af000002f600fffffffb0000000800540069006d00650100000000000004500000000000000000000002ad0000029500000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000400000000000001fc0000027cfc0200000008fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006400fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c00610079007300000000410000027c000000dd00fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261000000010000010f000002c4fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a005600690065007700730000000028000002c4000000b000fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000004af0000014efc0100000006fb0000000a0049006d0061006700650100000000000001fc0000005c00fffffffb0000000a0049006d0061006700650100000202000002ad0000005c00fffffffb0000000a0049006d0061006700650100000000000002ad0000000000000000fb0000000a0049006d00610067006501000002b3000001fc0000000000000000fb0000000800540069006d00650000000000000004af000002f600fffffffb0000000800540069006d00650100000000000004500000000000000000000004af0000027c00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Time:
@@ -500,5 +417,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1199
-  X: 74
-  Y: 32
+  X: 79
+  Y: 18

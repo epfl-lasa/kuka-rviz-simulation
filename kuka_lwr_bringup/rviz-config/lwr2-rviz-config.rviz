@@ -8,10 +8,11 @@ Panels:
         - /Status1
         - /DepthCloud1/Auto Size1
         - /DepthCloud1/Occlusion Compensation1
+        - /TF1
         - /TF1/Frames1
-        - /Image1/Status1
+        - /RobotModel1
       Splitter Ratio: 0.42953
-    Tree Height: 493
+    Tree Height: 359
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -107,34 +108,6 @@ Visualization Manager:
           Value: true
         camera_rgb_optical_frame:
           Value: true
-        kinect2_link:
-          Value: true
-        leg1_link:
-          Value: true
-        leg2_link:
-          Value: true
-        leg3_link:
-          Value: true
-        leg4_link:
-          Value: true
-        op_leg1_link:
-          Value: true
-        op_leg2_link:
-          Value: true
-        op_leg3_link:
-          Value: true
-        op_leg4_link:
-          Value: true
-        op_table_top_link:
-          Value: true
-        pole2_base_link:
-          Value: true
-        pole2_link:
-          Value: true
-        pole_base_link:
-          Value: true
-        pole_link:
-          Value: true
         right_arm_1_link:
           Value: true
         right_arm_2_link:
@@ -151,24 +124,32 @@ Visualization Manager:
           Value: true
         right_arm_flange_link:
           Value: true
-        table_top_link:
+        right_leg1_link:
+          Value: true
+        right_leg2_link:
+          Value: true
+        right_leg3_link:
+          Value: true
+        right_leg4_link:
+          Value: true
+        right_table_top_link:
           Value: true
         world_frame:
           Value: true
-      Marker Scale: 0.5
+      Marker Scale: 0.2
       Name: TF
       Show Arrows: false
       Show Axes: true
       Show Names: true
       Tree:
-        table_top_link:
-          leg1_link:
+        right_table_top_link:
+          right_leg1_link:
             {}
-          leg2_link:
+          right_leg2_link:
             {}
-          leg3_link:
+          right_leg3_link:
             {}
-          leg4_link:
+          right_leg4_link:
             calib_right_arm_base_link:
               right_arm_1_link:
                 right_arm_2_link:
@@ -187,26 +168,9 @@ Visualization Manager:
                   camera_rgb_frame:
                     camera_rgb_optical_frame:
                       {}
-                kinect2_link:
-                  {}
-          op_table_top_link:
-            op_leg1_link:
-              {}
-            op_leg2_link:
-              {}
-            op_leg3_link:
-              {}
-            op_leg4_link:
-              {}
-          pole2_base_link:
-            pole2_link:
-              {}
-          pole_base_link:
-            pole_link:
-              {}
       Update Interval: 0
       Value: true
-    - Alpha: 1
+    - Alpha: 0.6
       Class: rviz/RobotModel
       Collision Enabled: false
       Enabled: true
@@ -217,71 +181,6 @@ Visualization Manager:
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
         calib_right_arm_base_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        leg1_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        leg2_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        leg3_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        leg4_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        op_leg1_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        op_leg2_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        op_leg3_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        op_leg4_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        op_table_top_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        pole2_base_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        pole2_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        pole_base_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        pole_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -325,7 +224,27 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        table_top_link:
+        right_leg1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_leg2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_leg3_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_leg4_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_table_top_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -346,6 +265,7 @@ Visualization Manager:
       Normalize Range: true
       Queue Size: 2
       Transport Hint: raw
+      Unreliable: false
       Value: true
     - Class: rviz/Image
       Enabled: true
@@ -357,6 +277,7 @@ Visualization Manager:
       Normalize Range: true
       Queue Size: 2
       Transport Hint: raw
+      Unreliable: false
       Value: true
   Enabled: true
   Global Options:
@@ -382,22 +303,22 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 4.77209
+      Distance: 3.22957
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.06
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -0.424751
-        Y: 0.533041
-        Z: 0.163395
+        X: -0.789548
+        Y: 0.0605057
+        Z: 0.400559
       Name: Current View
       Near Clip Distance: 0.01
-      Pitch: 0.180205
+      Pitch: 0.240205
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 3.95038
+      Yaw: 2.3422
     Saved: ~
 Window Geometry:
   Displays:
@@ -417,5 +338,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1199
-  X: 79
-  Y: 18
+  X: 116
+  Y: 69

@@ -3,8 +3,4 @@
   <!-- Create Target and World Frames -->
   <node pkg="tf" type="static_transform_publisher" name="world_frame" args="0 0 0 0 0 0 calib_right_arm_base_link world_frame 100" />
 
-
-<!--   <node pkg="tf" type="static_transform_publisher" name="target_frame" args="-0.13 0.014 0.235 0 0 1.5708 right_arm_flange_link target_frame 100"/> -->
-
-<!-- node pkg="tf" type="static_transform_publisher" name="target_frame" args="-0.15 -0.086 0.235 0 0 1.5708 right_arm_flange_link target_frame 100"/ -->
  </launch>

@@ -3,9 +3,11 @@
 
   <!-- Set Robot model/rviz configuration path-->
   <arg name="urdf-name"                   default="kuka_lwr2_alone_lasa.urdf.xacro"/>
+  <arg name="launch-openni"               default="false"/>
   <arg name="load-rviz"                   default="true"/>
   <arg name="rviz-config-path"            default="$(find kuka_lwr_bringup)/rviz-config/lwr2-rviz-config.rviz"/>
   <arg name="launch-gazebo"               default="true"/>
+
 
   <!-- Load KUKA joint state visualization -->
   <include file="$(find kuka_lwr_bringup)/launch/load_kuka_viz.launch">
@@ -17,6 +19,16 @@
   <!-- <include file="$(find kuka_lwr_bringup)/launch/calibration/world_to_camera_tf_alone.launch"/> -->
   <include file="$(find kuka_lwr_bringup)/launch/calibration/upload_frames4calibration.launch"/>
   
+
+  <!-- Launch OpenNI to generate image types and point clouds -->
+  <group if="$(arg launch-openni)">
+      <include file="$(find openni_launch)/launch/openni.launch">
+        <arg name="load_driver" value="false"/>        
+      </include>
+  </group>
+
+
+
   <!-- Startup RVIZ with given config -->
   <group if="$(arg load-rviz)">
     <node name="rviz" pkg="rviz" type="rviz"  args="-d $(arg rviz-config-path)"  required="true" />

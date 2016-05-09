@@ -2,17 +2,17 @@
 <launch>
 
   <!-- Set Robot model/rviz configuration path-->
-  <arg name="urdf-name"                   default="kuka_lwr2_alone_lasa.urdf.xacro"/>
-  <arg name="launch-openni"               default="false"/>
-  <arg name="load-rviz"                   default="true"/>
-  <arg name="rviz-config-path"            default="$(find kuka_lwr_bringup)/rviz-config/lwr2-rviz-config.rviz"/>
-  <arg name="launch-gazebo"               default="true"/>
+  <arg name="urdf_name"                   default="kuka_lwr2_alone_lasa.urdf.xacro"/>
+  <arg name="launch_openni"               default="false"/>
+  <arg name="load_rviz"                   default="true"/>
+  <arg name="rviz_config_path"            default="$(find kuka_lwr_bringup)/rviz-config/lwr2-rviz-config.rviz"/>
+  <arg name="launch_gazebo"               default="true"/>
 
 
   <!-- Load KUKA joint state visualization -->
   <include file="$(find kuka_lwr_bringup)/launch/load_kuka_viz.launch">
   <!-- Override Argument to desired robot model -->
-    <arg name="urdf-name"                 value="$(arg urdf-name)"/>
+    <arg name="urdf-name"                 value="$(arg urdf_name)"/>
   </include>
 
   <!-- Upload Kinect-Robot Base Calibrated Transform -->
@@ -21,21 +21,20 @@
   
 
   <!-- Launch OpenNI to generate image types and point clouds -->
-  <group if="$(arg launch-openni)">
+  <group if="$(arg launch_openni)">
       <include file="$(find openni_launch)/launch/openni.launch">
         <arg name="load_driver" value="false"/>        
       </include>
   </group>
 
 
-
   <!-- Startup RVIZ with given config -->
-  <group if="$(arg load-rviz)">
-    <node name="rviz" pkg="rviz" type="rviz"  args="-d $(arg rviz-config-path)"  required="true" />
+  <group if="$(arg load_rviz)">
+    <node name="rviz" pkg="rviz" type="rviz"  args="-d $(arg rviz_config_path)"  required="true" />
   </group>
   
   <!-- GAZEBO SHIT -->
-  <group if="$(arg launch-gazebo)">
+  <group if="$(arg launch_gazebo)">
       <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
       <include file="$(find gazebo_ros)/launch/empty_world.launch">
         <arg name="world_name" value="$(find lwr_gazebo)/worlds/empty_world.world"/>

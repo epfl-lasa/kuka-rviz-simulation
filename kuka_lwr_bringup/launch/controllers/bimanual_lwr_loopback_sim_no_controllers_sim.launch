@@ -22,8 +22,8 @@
    
     <node name="loopback_controllers" type="loopback_controller_manager" pkg="loopback_controller_manager" output="screen">
       <!-- for perfect sim: chose p=m/dt with damping=0 -->
-      <param name="dt" value="0.002" /> <!-- in [s], default: 0.01 -->
-      <param name="damping" value="0.0" /> <!-- default: 0.1 -->
+      <param name="dt" value="0.01" /> <!-- in [s], default: 0.01 -->
+      <param name="damping" value="0.1" /> <!-- default: 0.1 -->
       <param name="mass" value="0.01" /> <!-- default: 0.1 -->
     </node>
    

@@ -10,8 +10,8 @@ r_arm_state_separator:
 r_arm_pos_controller: &controller_params
   vel_command_type: MultiJointVelocityImpedanceCommand
   max_speed: 1.9
-  p_gain: 80
-  stiffness: 100
+  p_gain: 10
+  stiffness: 200
 l_arm_state_separator:
   joint_names:
     - left_arm_0_joint

@@ -11,7 +11,7 @@ r_arm_vel:
   gains:
     right_arm_0_joint: &pid_gains
     # for perfect sim: chose p=m/dt with damping=0
-      p: 20
+      p: 2
       i: 0.0
       d: 0.0
     right_arm_1_joint: *pid_gains

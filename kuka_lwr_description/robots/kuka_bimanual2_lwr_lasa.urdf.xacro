@@ -14,7 +14,7 @@
 
 	<xacro:include filename="$(find kuka_lwr_bringup)/models/table/table3b.urdf.xacro" />
 	<robot_dep_table parent="right_table_top_link" name="left">
-      <origin xyz="1.07 0 0" rpy=" 0 0 0"/>
+      <origin xyz="1.15 0 0" rpy=" 0 0 0"/>
     </robot_dep_table>
 
 	<xacro:include filename="$(find kuka_lwr_description)/urdf/kuka_lwr_arm_lasa.urdf.xacro"/>	

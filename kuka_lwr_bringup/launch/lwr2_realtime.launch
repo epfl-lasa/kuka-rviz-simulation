@@ -12,6 +12,12 @@
   	<arg name="urdf-name"		  	          value="$(arg urdf-name)"/>
   </include>
 
+  <!-- Aggregate Joint states -->
+   <node name="joint_state_publisher" type="joint_state_publisher" pkg="joint_state_publisher" output="screen">     
+      <param name="robot_description"         command="$(find xacro)/xacro.py '$(arg urdf-path)'" />  
+        <rosparam param="source_list">[/KUKA/joint_states]</rosparam>
+   </node>
+
   <!-- Upload Kinect-Robot Base Calibrated Transform -->
   <include file="$(find kuka_lwr_bringup)/launch/calibration/upload_frames4calibration.launch"/>
   <include file="$(find kuka_lwr_bringup)/launch/calibration/world_to_camera_tf_broadcaster_dataset.launch"/>

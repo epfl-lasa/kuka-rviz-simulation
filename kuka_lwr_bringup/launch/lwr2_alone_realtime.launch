@@ -3,6 +3,7 @@
 
   <!-- Set Robot model/rviz configuration path-->
   <arg name="urdf-name"					          default="kuka_lwr2_alone_lasa.urdf.xacro"/>
+  <arg name="urdf-path"                   default="$(find kuka_lwr_description)/robots/$(arg urdf-name)"/>
   <arg name="load-rviz"                   default="true"/>
   <arg name="rviz-config-path"            default="$(find kuka_lwr_bringup)/rviz-config/lwr2-rviz-config.rviz"/>
 
@@ -11,6 +12,12 @@
  	<!-- Override Argument to desired robot model -->
   	<arg name="urdf-name"		  	          value="$(arg urdf-name)"/>
   </include>
+
+  <!-- Aggregate Joint states -->
+   <node name="joint_state_publisher" type="joint_state_publisher" pkg="joint_state_publisher" output="screen">     
+      <param name="robot_description"         command="$(find xacro)/xacro.py '$(arg urdf-path)'" />  
+        <rosparam param="source_list">[/KUKA/joint_states]</rosparam>
+   </node>
 
   <!-- Upload Kinect-Robot Base Calibrated Transform -->
   <include file="$(find kuka_lwr_bringup)/launch/calibration/upload_frames4calibration.launch"/>

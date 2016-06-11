@@ -3,18 +3,11 @@
 
 This package runs a simulation of the KUKA LWR robot in the LASA lab (EPFL) with the velocity/position-resolved controllers from the standard pr2 control manager, using some of the IAI lab ctrl packages (Uni Bremen).
 
-In order to run this code, install the following packages beforehand:
+In order to run this code, install the following ros-packages beforehand:
  
 ```
-sudo apt-get install ros-kinetic-control-box ros-kinetic-controller-manager
+sudo apt-get install ros-kinetic-convex-decomposition ros-kinetic-ivcon
 ```
-To use the same message type in simulation and with the real robot via the  [kuka_fri_bridge](https://github.com/nbfigueroa/kuka_interface_packages.git)  you need to download and install the following repo:
-
-```
-$ git clone https://github.com/nbfigueroa/kuka_interface_packages
-```
-and don't forget to install all [dependencies](https://github.com/nbfigueroa/kuka_interface_packages) for this package.
-
 ---
 ##Functionalities:
 In order to **simulate** the KUKA LWR robot in the LASA lab with velocity controllers you need to run the following lines of code:

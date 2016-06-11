@@ -8,6 +8,7 @@ In order to run this code, install the following ros-packages beforehand:
 sudo apt-get install ros-kinetic-convex-decomposition ros-kinetic-ivcon
 ```
 and the dependencies found in ```dependencies.rosinstall```
+
 ---
 ##Functionalities:
 In order to **simulate** the KUKA LWR robot in the LASA lab with velocity controllers you need to run the following lines of code:

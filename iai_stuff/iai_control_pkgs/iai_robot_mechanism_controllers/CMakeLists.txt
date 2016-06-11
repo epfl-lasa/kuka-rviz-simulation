@@ -30,7 +30,6 @@ include_directories(
   ${Boost_INCLUDE_DIRS})
  
 add_library(${PROJECT_NAME}
-  src/rosie_odometry.cpp
   src/multi_joint_velocity_controller.cpp
   src/multi_joint_velocity_impedance_controller.cpp)
 

@@ -3,7 +3,7 @@
   <include file="$(find kuka_lwr_bringup)/launch/bimanual_lwr_simulation_viz.launch">
     <!-- Override Argument to desired robot model -->
     <arg name="urdf-name"                   value="kuka_bimanual2_lwr_lasa.urdf.xacro"/>
-    <arg name="rviz-config-path"            value="$(find kuka_lwr_bringup)/rviz-config/bimanual2-rviz-config.rviz"/>  
+    <arg name="rviz-config-path"            value="$(find kuka_lwr_bringup)/rviz-config/bimanual2-sim-rviz-config.rviz"/>  
   </include>
   
   <!-- Load LASA to IAI joint state parser -->

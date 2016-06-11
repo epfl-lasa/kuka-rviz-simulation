@@ -30,7 +30,7 @@ This simulation offers a joint velocity/position-resolved interface for the KUKA
 To test the simulation, you can manually move the robot in **velocity control mode** like so:
 
 ```
-rostopic pub -20 /KUKA/joint_imp_cmd kuka_fri_bridge/JointStateImpedance '{velocity: [0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], stiffness: [200.0, 200.0, 200.0, 200.0, 200.0, 200.0, 200.0]}'
+rostopic pub -r 20 /KUKA/joint_imp_cmd kuka_fri_bridge/JointStateImpedance '{velocity: [0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], stiffness: [200.0, 200.0, 200.0, 200.0, 200.0, 200.0, 200.0]}'
 ```
 
 Here you are commanding the first joint with a velocity of 0.5rad/s and setting stiffness values for all joints at 200Nm/rad.
@@ -38,7 +38,7 @@ Here you are commanding the first joint with a velocity of 0.5rad/s and setting 
 To test the simulation in **position control mode** do the following:
 
 ```
-rostopic pub -20 /KUKA/joint_imp_cmd kuka_fri_bridge/JointStateImpedance '{position: [0.29, -0.26, 0.11, -1.7, 0.96, 1.8, -2.43]}'
+rostopic pub -r 20 /KUKA/joint_imp_cmd kuka_fri_bridge/JointStateImpedance '{position: [0.29, -0.26, 0.11, -1.7, 0.96, 1.8, -2.43]}'
 ```
 Position values per joint are in [rad].
 
@@ -53,7 +53,7 @@ You can also use this package as a **realtime visualization** of your experiment
  $ roslaunch kuka_lwr_bringup lwr_realtime.launch
  $ rosrun kuka_fri_bridge run_lwr.sh
  ```
-The ```kuka_fri_bridge``` will be publishing the ```/joint_states```topic.
+The ```kuka_fri_bridge``` will be publishing the ```/KUKA/joint_states```topic.
 
  2. If you are using the epfl-lasa standard interface packages ([lwr_interface](https://github.com/epfl-lasa/lwr-interface) and [fri-library-ros](https://github.com/epfl-lasa/fri-library-ros)) within your control node/module in [robot-toolkit](https://github.com/epfl-lasa/robot-toolkit.git), you can just start-up robot_mirror and rviz as follows:
 

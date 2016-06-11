@@ -31,8 +31,8 @@
   <!-- Upload Kinect-Robot Base Calibrated Transform -->
   <include file="$(find kuka_lwr_bringup)/launch/calibration/upload_frames4calibration.launch"/>
 
-  <!-- Startup RVIZ with given config -->
-  <group if="$(arg load-rviz)">
+  <!-- Startup RVIZ --> 
+  <group if="$(arg load-rviz)">   
     <node name="rviz" pkg="rviz" type="rviz"  args="-d $(arg rviz-config-path)"  required="true" />
   </group>
   

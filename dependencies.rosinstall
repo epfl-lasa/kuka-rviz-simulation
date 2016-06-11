@@ -7,21 +7,3 @@
 - git:
     local-name: robot-toolkit
     uri: https://github.com/epfl-lasa/robot-toolkit.git
--git:
-    local-name: control-toolbox
-    uri: https://github.com/ros-controls/control_toolbox.git(#indigo-devel)
--git:
-    local-name: ros-control    
-    uri: https://github.com/ros-controls/ros_control.git(#indigo-devel)
--git:
-    local-name: pr2-controllers    
-    uri: https://github.com/PR2/pr2_controllers.git(#indigo-devel)
--git:
-    local-name: pr2-control  
-    uri: https://github.com/PR2/pr2_common.git(#indigo-devel)  
--git:
-    local-name: pr2-mechanism
-    uri: https://github.com/PR2/pr2_mechanism.git(#indigo-devel)      
--git:
-    local-name: pr2-mechanism-msgs
-    uri: https://github.com/PR2/pr2_mechanism_msgs.git

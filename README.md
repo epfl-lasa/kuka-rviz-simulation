@@ -37,7 +37,7 @@ This simulation offers a joint velocity/position-resolved interface for the KUKA
 To test the simulation, you can manually move the robot in **velocity control mode** like so:
 
 ```
-rostopic pub -20 /KUKA/joint_imp_cmd kuka_fri_bridge/JointStateImpedance '{velocity: [0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], stiffness: [200.0, 200.0, 200.0, 200.0, 200.0, 200.0, 200.0]}'
+rostopic pub -r 20 /KUKA/joint_imp_cmd kuka_fri_bridge/JointStateImpedance '{velocity: [0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], stiffness: [200.0, 200.0, 200.0, 200.0, 200.0, 200.0, 200.0]}'
 ```
 
 Here you are commanding the first joint with a velocity of 0.5rad/s and setting stiffness values for all joints at 200Nm/rad.
@@ -45,7 +45,7 @@ Here you are commanding the first joint with a velocity of 0.5rad/s and setting 
 To test the simulation in **position control mode** do the following:
 
 ```
-rostopic pub -20 /KUKA/joint_imp_cmd kuka_fri_bridge/JointStateImpedance '{position: [0.29, -0.26, 0.11, -1.7, 0.96, 1.8, -2.43]}'
+rostopic pub -r 20 /KUKA/joint_imp_cmd kuka_fri_bridge/JointStateImpedance '{position: [0.29, -0.26, 0.11, -1.7, 0.96, 1.8, -2.43]}'
 ```
 Position values per joint are in [rad].
 

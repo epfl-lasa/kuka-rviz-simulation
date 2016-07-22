@@ -11,14 +11,9 @@
   <include file="$(find kuka_lwr_bringup)/launch/load_kuka_viz.launch">
   <!-- Override Argument to desired robot model -->
     <arg name="urdf-name"                 value="$(arg urdf-name)"/>
+    <arg name="urdf-path"                 value="$(arg urdf-path)"/>
   </include>
 
-
-  <!-- Aggregate Joint states -->
-   <node name="joint_state_publisher" type="joint_state_publisher" pkg="joint_state_publisher" output="screen">
-      <param name="robot_description"         command="$(find xacro)/xacro.py '$(arg urdf-path)'" />
-        <rosparam param="source_list">[/KUKA/joint_states]</rosparam>
-   </node>
 
   <!-- Upload Kinect-Robot Base Calibrated Transform -->
   <include file="$(find kuka_lwr_bringup)/launch/calibration/upload_frames4calibration.launch"/>

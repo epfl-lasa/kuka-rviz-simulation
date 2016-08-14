@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <launch>
-<node pkg="tf" type="static_transform_publisher" name="world_to_camera" args="-1.68 0.08 0.65 0.01 0.3 0 world_frame /camera_link 100"/>
+<node pkg="tf" type="static_transform_publisher" name="world_to_camera" args="-1.68 0.0 0.73 0.01 0.3 0 world_frame /camera_link 100"/>
 
 
  </launch>

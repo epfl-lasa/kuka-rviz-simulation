@@ -23,6 +23,7 @@
 
   <property name="pole2_base_color" value="0 0 0 1" />
   <property name="pole2_color" value="0 0 0 1" />
+  <property name="table_color" value="100 100 100 1" />
 
   <property name="pole2_base_thickness" value="0.05"/>
 
@@ -194,12 +195,12 @@
                izz="0.01" />
     </inertial> 
     <visual>
-      <origin xyz="0.0 -0.75 0.74" rpy="0 0 0" />
+      <origin xyz="0.02 -0.75 0.74" rpy="0 0 0" />
       <geometry>
         <box size="0.75 0.56 0.03" />
       </geometry>
-      <material name="pole2_blue">
-        <color rgba="0 0 0 1"/>
+      <material name="table_color">
+        <color rgba="100 100 100 1"/>
       </material>
     </visual> 
 

@@ -14,18 +14,18 @@
 
 	<xacro:include filename="$(find kuka_lwr_bringup)/models/table/table3b.urdf.xacro" />
 	<robot_dep_table parent="right_table_top_link" name="left">
-      <origin xyz="1.15 0 0" rpy=" 0 0 0"/>
+      <origin xyz="1.15 0.05 0" rpy=" 0 0 0"/>
     </robot_dep_table>
 
 	<xacro:include filename="$(find kuka_lwr_description)/urdf/kuka_lwr_arm_lasa.urdf.xacro"/>	
 	<kuka_lwr_arm parent="left_leg4_link" name="left">
-          <origin xyz="0.45 0.38 0" rpy=" 0 0 1.56"/>
+          <origin xyz="0.45 0.38 0" rpy=" 0 0 1.7"/>
         </kuka_lwr_arm>
 
 	<xacro:include filename="$(find kuka_lwr_bringup)/models/pole/pole_kinect_table.urdf.xacro" />
 	<joint name="pole2_base_joint" type="fixed" >
 	    <parent link="right_table_top_link" />
-	    <origin xyz="0.53 0.25 ${pole2_base_thickness/2}" rpy="0 0 0" />
+	    <origin xyz="0.53 0.25 ${pole2_base_thickness/2-0.02}" rpy="0 0 0" />
 	    <child link="pole2_base_link" />
 	</joint>    
 

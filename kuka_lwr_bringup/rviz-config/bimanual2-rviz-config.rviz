@@ -32,7 +32,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: ""
+    SyncSource: DepthCloud
 Visualization Manager:
   Class: ""
   Displays:
@@ -242,7 +242,21 @@ Visualization Manager:
           Value: true
         calib_right_arm_base_link:
           Value: true
+        kinect2_ir_optical_frame:
+          Value: true
+        kinect2_link:
+          Value: true
+        kinect2_rgb_optical_frame:
+          Value: true
         kinect_pole_link:
+          Value: true
+        l_des_ee:
+          Value: true
+        l_ee_tf:
+          Value: true
+        left_arm/curr_ee_tf:
+          Value: true
+        left_arm/des_ee_tf:
           Value: true
         left_arm_1_link:
           Value: true
@@ -259,6 +273,8 @@ Visualization Manager:
         left_arm_7_link:
           Value: true
         left_arm_flange_link:
+          Value: true
+        left_attractor:
           Value: true
         left_leg1_link:
           Value: true
@@ -278,6 +294,16 @@ Visualization Manager:
           Value: true
         pole2_top_link:
           Value: true
+        r_des_ee:
+          Value: true
+        r_ee_tf:
+          Value: true
+        real_object:
+          Value: true
+        right_arm/curr_ee_tf:
+          Value: true
+        right_arm/des_ee_tf:
+          Value: true
         right_arm_1_link:
           Value: true
         right_arm_2_link:
@@ -294,6 +320,8 @@ Visualization Manager:
           Value: true
         right_arm_flange_link:
           Value: true
+        right_attractor:
+          Value: true
         right_leg1_link:
           Value: true
         right_leg2_link:
@@ -303,6 +331,10 @@ Visualization Manager:
         right_leg4_link:
           Value: true
         right_table_top_link:
+          Value: true
+        task_frame:
+          Value: true
+        virtual_object:
           Value: true
         world_frame:
           Value: true
@@ -322,6 +354,10 @@ Visualization Manager:
               {}
             left_leg4_link:
               calib_left_arm_base_link:
+                left_arm/curr_ee_tf:
+                  {}
+                left_arm/des_ee_tf:
+                  {}
                 left_arm_1_link:
                   left_arm_2_link:
                     left_arm_3_link:
@@ -346,6 +382,22 @@ Visualization Manager:
             {}
           right_leg4_link:
             calib_right_arm_base_link:
+              l_des_ee:
+                {}
+              l_ee_tf:
+                {}
+              left_attractor:
+                {}
+              r_des_ee:
+                {}
+              r_ee_tf:
+                {}
+              real_object:
+                {}
+              right_arm/curr_ee_tf:
+                {}
+              right_arm/des_ee_tf:
+                {}
               right_arm_1_link:
                 right_arm_2_link:
                   right_arm_3_link:
@@ -355,8 +407,17 @@ Visualization Manager:
                           right_arm_7_link:
                             right_arm_flange_link:
                               {}
-              world_frame:
+              right_attractor:
                 {}
+              virtual_object:
+                {}
+              world_frame:
+                kinect2_link:
+                  kinect2_rgb_optical_frame:
+                    kinect2_ir_optical_frame:
+                      {}
+                task_frame:
+                  {}
       Update Interval: 0
       Value: true
     - Class: rviz/Marker
@@ -364,7 +425,7 @@ Visualization Manager:
       Marker Topic: /left_vo
       Name: Marker
       Namespaces:
-        {}
+        basic_shapes: true
       Queue Size: 100
       Value: true
     - Class: rviz/Marker
@@ -372,7 +433,7 @@ Visualization Manager:
       Marker Topic: /real_object
       Name: Marker
       Namespaces:
-        {}
+        basic_shapes: true
       Queue Size: 100
       Value: true
     - Class: rviz/Marker
@@ -380,7 +441,7 @@ Visualization Manager:
       Marker Topic: /right_vo
       Name: Marker
       Namespaces:
-        {}
+        basic_shapes: true
       Queue Size: 100
       Value: true
     - Class: rviz/Marker
@@ -388,7 +449,7 @@ Visualization Manager:
       Marker Topic: /virtual_object
       Name: Marker
       Namespaces:
-        {}
+        basic_shapes: true
       Queue Size: 100
       Value: true
     - Alpha: 1
@@ -423,7 +484,7 @@ Visualization Manager:
       Position Transformer: XYZ
       Queue Size: 5
       Selectable: true
-      Size (Pixels): 1.5
+      Size (Pixels): 2
       Style: Points
       Topic Filter: true
       Use Fixed Frame: true
@@ -563,22 +624,22 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 3.48925
+      Distance: 3.21889
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.06
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -0.255098
-        Y: -0.421138
-        Z: 0.239948
+        X: -0.567523
+        Y: -0.548544
+        Z: 0.575884
       Name: Current View
       Near Clip Distance: 0.01
-      Pitch: 0.384797
+      Pitch: 0.644797
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 3.09968
+      Yaw: 5.99467
     Saved: ~
 Window Geometry:
   Displays:
@@ -598,5 +659,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1173
-  X: 1617
+  X: 1365
   Y: 14

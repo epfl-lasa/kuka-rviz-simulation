@@ -133,3 +133,7 @@ To modify initial joint configuration of the robot, modify the following file:
 ```
 ~/kuka-rviz-simulation/kuka_lwr_bringup/config/bimanual_lwr_start_config.yaml
 ```
+# Troubleshooting
+
+1. The robots don't move in the simulator, there is no error!
+ ->Kill the roscore!

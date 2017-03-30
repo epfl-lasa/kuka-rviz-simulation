@@ -1,5 +1,5 @@
 # KUKA LWR @LASA Simulation and Visualization
-[![Build Status](https://travis-ci.com/epfl-lasa/kuka-rviz-simulation.svg?token=rqxofpr1d48TwpPKQAeJ&branch=master)
+![Build Status](https://travis-ci.com/epfl-lasa/kuka-rviz-simulation.svg?token=rqxofpr1d48TwpPKQAeJ&branch=master)
 
 This package runs a simulation of the KUKA LWR robot in the LASA lab (EPFL) with the velocity/position-resolved controllers from the standard pr2 control manager, using some of the IAI lab ctrl packages (Uni Bremen).
 

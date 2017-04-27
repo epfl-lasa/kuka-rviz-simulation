@@ -33,25 +33,25 @@ To run the bimanual simulation:
 $ roslaunch kuka_lwr_bringup bimanual_simulation.launch
 ```
 
-Test velocity control left arm:
+Test velocity control first arm:
 ```
-rostopic pub -r 20 /l_arm_controller/joint_imp_cmd kuka_fri_bridge/JointStateImpedance '{velocity: [0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}'
-```
-
-Test velocity control right arm:
-```
-rostopic pub -r 20 /r_arm_controller/joint_imp_cmd kuka_fri_bridge/JointStateImpedance '{velocity: [0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}'
+rostopic pub -r 20 /first_arm_controller/joint_imp_cmd kuka_fri_bridge/JointStateImpedance '{velocity: [0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}'
 ```
 
-Test position control left arm:
+Test velocity control second arm:
 ```
-rostopic pub -r 20 /l_arm_controller/joint_imp_cmd kuka_fri_bridge/JointStateImpedance '{position: [0.0, -1.0, 0.0, -10.0, 0.0, 0.0, 130]}'
+rostopic pub -r 20 /second_arm_controller/joint_imp_cmd kuka_fri_bridge/JointStateImpedance '{velocity: [0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}'
+```
+
+Test position control first arm:
+```
+rostopic pub -r 20 /first_arm_controller/joint_imp_cmd kuka_fri_bridge/JointStateImpedance '{position: [0.0, -1.0, 0.0, -10.0, 0.0, 0.0, 130]}'
 
 ```
 
-test position control right arm:
+test position control second arm:
 ```
-rostopic pub -r 20 /r_arm_controller/joint_imp_cmd kuka_fri_bridge/JointStateImpedance '{position: [0.0, -1.0, 0.0, -10.0, 0.0, 0.0, 130]}'
+rostopic pub -r 20 /second_arm_controller/joint_imp_cmd kuka_fri_bridge/JointStateImpedance '{position: [0.0, -1.0, 0.0, -10.0, 0.0, 0.0, 130]}'
 ```
 
 #### Multi-Robot Setting 2:

@@ -2,7 +2,7 @@
 <launch>
 
   <!-- Set Robot model/rviz configuration path-->
-  <arg name="urdf-name"                   default="kuka_bimanual_lwr_lasa_collision_test.urdf.xacro"/>
+  <arg name="urdf-name"                   default="kuka_bimanual_lwr_lasa.urdf.xacro"/>
   <arg name="load-rviz"                   default="true"/>
   <arg name="urdf-path" 	  	          default="$(find kuka_lwr_description)/robots/$(arg urdf-name)"/>
   <arg name="rviz-config-path"            default="$(find kuka_lwr_bringup)/rviz-config/bimanual-rviz-config.rviz"/>
@@ -12,7 +12,7 @@
   <param name="/use_sim_time" value="false"/>
 
   <!-- load up urdf to the parameter server -->
-  <include file="$(find kuka_lwr_bringup)/launch/upload_bimanual_lwr.launch">
+  <include file="$(find kuka_lwr_bringup)/launch/bimanual/upload_bimanual_lwr.launch">
     <!-- Override Argument to desired robot model -->
     <arg name="urdf-name"                   value="$(arg urdf-name)"/>
     <arg name="load-rviz"                   value="$(arg load-rviz)"/>

@@ -21,13 +21,13 @@ class JS_converter(object):
         self.init_work_variables()    
         self.vel_output_topic_type = MultiJointVelocityImpedanceCommand
 
-        self.l_js_sub = rospy.Subscriber("/l_arm_controller/joint_imp_cmd", numpy_msg(JointStateImpedance), self.l_js_cb, queue_size=3, tcp_nodelay=True)
-        self.l_out_js_pos_pub = rospy.Publisher("/l_arm_pos_controller/command", Float32MultiArray, queue_size=3, tcp_nodelay=True, latch=False)
-        self.l_out_js_vel_pub = rospy.Publisher("/l_arm_vel/command", numpy_msg(self.vel_output_topic_type), queue_size=3, tcp_nodelay=True, latch=False)
+        self.l_js_sub = rospy.Subscriber("/first_arm_controller/joint_imp_cmd", numpy_msg(JointStateImpedance), self.l_js_cb, queue_size=3, tcp_nodelay=True)
+        self.l_out_js_pos_pub = rospy.Publisher("/first_arm_pos_controller/command", Float32MultiArray, queue_size=3, tcp_nodelay=True, latch=False)
+        self.l_out_js_vel_pub = rospy.Publisher("/first_arm_vel/command", numpy_msg(self.vel_output_topic_type), queue_size=3, tcp_nodelay=True, latch=False)
 
-        self.r_js_sub = rospy.Subscriber("/r_arm_controller/joint_imp_cmd", numpy_msg(JointStateImpedance), self.r_js_cb, queue_size=3, tcp_nodelay=True)
-        self.r_out_js_pos_pub = rospy.Publisher("/r_arm_pos_controller/command", Float32MultiArray, queue_size=3, tcp_nodelay=True, latch=False)
-        self.r_out_js_vel_pub = rospy.Publisher("/r_arm_vel/command", numpy_msg(self.vel_output_topic_type), queue_size=3, tcp_nodelay=True, latch=False)
+        self.r_js_sub = rospy.Subscriber("/second_arm_controller/joint_imp_cmd", numpy_msg(JointStateImpedance), self.r_js_cb, queue_size=3, tcp_nodelay=True)
+        self.r_out_js_pos_pub = rospy.Publisher("/second_arm_pos_controller/command", Float32MultiArray, queue_size=3, tcp_nodelay=True, latch=False)
+        self.r_out_js_vel_pub = rospy.Publisher("/second_arm_vel/command", numpy_msg(self.vel_output_topic_type), queue_size=3, tcp_nodelay=True, latch=False)
 
 
     def init_work_variables(self):

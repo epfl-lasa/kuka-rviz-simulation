@@ -1,19 +1,19 @@
 joints:
   name:
-    - right_arm_0_joint
-    - right_arm_1_joint
-    - right_arm_2_joint
-    - right_arm_3_joint
-    - right_arm_4_joint
-    - right_arm_5_joint
-    - right_arm_6_joint
-    - left_arm_0_joint
-    - left_arm_1_joint
-    - left_arm_2_joint
-    - left_arm_3_joint
-    - left_arm_4_joint
-    - left_arm_5_joint
-    - left_arm_6_joint
+    - second_arm_0_joint
+    - second_arm_1_joint
+    - second_arm_2_joint
+    - second_arm_3_joint
+    - second_arm_4_joint
+    - second_arm_5_joint
+    - second_arm_6_joint
+    - first_arm_0_joint
+    - first_arm_1_joint
+    - first_arm_2_joint
+    - first_arm_3_joint
+    - first_arm_4_joint
+    - first_arm_5_joint
+    - first_arm_6_joint
   position:
 
     - -1.0762380361557007 

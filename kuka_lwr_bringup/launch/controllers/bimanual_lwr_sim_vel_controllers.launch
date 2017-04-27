@@ -4,5 +4,5 @@
     file="$(find kuka_lwr_bringup)/config/bimanual_lwr_sim_vel_controllers.yaml"/>
 
   <node name="vel_controllers_spawner" pkg="pr2_controller_manager" type="spawner"
-      output="screen" args="l_arm_vel r_arm_vel"/>
+      output="screen" args="first_arm_vel second_arm_vel"/>
 </launch>

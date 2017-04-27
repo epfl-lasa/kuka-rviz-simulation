@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <launch>
-  <include file="$(find kuka_lwr_bringup)/launch/bimanual_lwr_simulation_viz.launch"/>
+  <include file="$(find kuka_lwr_bringup)/launch/bimanual/bimanual_lwr_simulation_viz.launch"/>
 
 
   <node pkg="ball" type="ball" name="ball" />

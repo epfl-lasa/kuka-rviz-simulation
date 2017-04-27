@@ -3,13 +3,13 @@
 	<xacro:include filename="$(find kuka_lwr_bringup)/models/table/table2.urdf.xacro" />
 	<xacro:include filename="$(find kuka_lwr_description)/defs/materials.xml"/>
 	<xacro:include filename="$(find kuka_lwr_description)/urdf/kuka_lwr_arm_lasa.urdf.xacro"/>
-	<kuka_lwr_arm parent="leg2_link" name="left">
-          <origin xyz="-0.0284889 -1.32351 0.105877" rpy=" 0 0 0"/>
+	<kuka_lwr_arm parent="leg2_link" name="first">
+          <origin xyz="0.20 -0.45 0.0" rpy=" 0 0 1.56"/>
         </kuka_lwr_arm>
 
 
 	<xacro:include filename="$(find kuka_lwr_description)/urdf/kuka_lwr_arm_lasa.urdf.xacro"/>
-	<kuka_lwr_arm parent="leg2_link" name="right">
-          <origin xyz="0.0 0.0 0" rpy=" 0 0 0"/>
+	<kuka_lwr_arm parent="leg2_link" name="second">
+          <origin xyz="1.40 -0.45 0" rpy=" 0 0 1.56"/>
         </kuka_lwr_arm>
 </robot>

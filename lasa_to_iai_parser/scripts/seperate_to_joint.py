@@ -13,15 +13,15 @@ def jointStateImpedance_callback(data):
     
 
 class JS_merger(object):
-    """merge /l_arm/joint_states + /r_arm/joint_states"""
+    """merge /arm_1/joint_states + /arm_2/joint_states"""
     def __init__(self, num_dof):
         
         self.num_dof = num_dof
         self.init_work_variables()    
         self.output_topic_type = JointState
 
-        self.l_js_sub = rospy.Subscriber("/l_arm/joint_states", numpy_msg(JointState), self.l_js_cb, queue_size=1, tcp_nodelay=True)
-        self.r_js_sub = rospy.Subscriber("/l_arm/joint_states", numpy_msg(JointState), self.r_js_cb, queue_size=1, tcp_nodelay=True)
+        self.l_js_sub = rospy.Subscriber("/first_arm/joint_states", numpy_msg(JointState), self.l_js_cb, queue_size=1, tcp_nodelay=True)
+        self.r_js_sub = rospy.Subscriber("/second_arm/joint_states", numpy_msg(JointState), self.r_js_cb, queue_size=1, tcp_nodelay=True)
         self.js_pub   = rospy.Publisher("/joint_states",        numpy_msg(self.output_topic_type), queue_size=1, tcp_nodelay=True, latch=False)
 
     def init_work_variables(self):

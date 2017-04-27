@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
 <launch>
   <!-- Create Target and World Frames -->
-  <node pkg="tf" type="static_transform_publisher" name="world_frame" args="0 0 0 0 0 0 calib_right_arm_base_link world_frame 100" />
+  <node pkg="tf" type="static_transform_publisher" name="world_frame" args="0 0 0 0 0 0 calib_first_arm_base_link world_frame 100" />
  </launch>

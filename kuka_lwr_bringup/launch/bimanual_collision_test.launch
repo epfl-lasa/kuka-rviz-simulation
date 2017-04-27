@@ -1,9 +1,0 @@
-<?xml version="1.0" ?>
-<launch>
-  <include file="$(find kuka_lwr_bringup)/launch/bimanual_lwr_simulation_viz_collision_test.launch"/>
-
-
-  <!-- Load LASA to IAI joint state parser -->
-  <node name="lasa_bimanual_to_iai_parser" pkg="lasa_to_iai_parser" type="lasa_bimanual_to_iai.py" output="screen"/>
-
-</launch>

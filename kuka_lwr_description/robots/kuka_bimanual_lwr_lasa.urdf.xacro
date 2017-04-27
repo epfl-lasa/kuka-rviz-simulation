@@ -12,4 +12,6 @@
 	<kuka_lwr_arm parent="leg2_link" name="second">
           <origin xyz="1.40 -0.45 0" rpy=" 0 0 1.56"/>
         </kuka_lwr_arm>
+
+
 </robot>

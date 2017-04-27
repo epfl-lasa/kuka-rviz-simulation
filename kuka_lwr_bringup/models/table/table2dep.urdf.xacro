@@ -28,7 +28,14 @@
 
   <property name="M_PI" value="3.1415926535897931" />
 
-  <macro name="robot_table" params="name *origin">
+  <macro name="robot_dep_table" params="parent name *origin">
+
+    <joint name="${parent}_${name}_joint" type="fixed">
+      <insert_block name="origin"/>
+      <parent link="${parent}"/>
+      <child link="${name}_table_top_link"/>
+    </joint>
+
 
   <!-- tabletop height is .55+.01+.025=.585 -->
   <link name="${name}_table_top_link">

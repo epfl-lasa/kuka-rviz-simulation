@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<launch>
+  <include file="$(find kuka_lwr_bringup)/launch/bimanual/multiarm_lwr_simulation_viz.launch"/>
+
+
+  <node pkg="ball" type="ball" name="ball" />
+  <node name="interactive_target" pkg="mpc_ds_control" type="interactive_target.py"  />
+
+  <node pkg="object_recognition" type="object_recognition_node" name="object_recognition_node" />
+
+  <node pkg="using_markers" type="basic_shapes" name="basic_shapes" />
+  
+  <!-- node pkg="object_recognition" type="data_listener.py" name="a" /-->
+
+  <node pkg="intercept_finder" type="intercept_finder_node" name="intercept_finder_node" />
+
+
+  <!-- Load LASA to IAI joint state parser -->
+  <!-- <node name="lasa_bimanual_to_iai_parser" pkg="lasa_to_iai_parser" type="lasa_bimanual_to_iai.py" output="screen"/> -->
+
+</launch>

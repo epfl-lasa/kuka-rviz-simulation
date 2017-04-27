@@ -1,0 +1,25 @@
+<robot name="spatula">
+  <link name="body">
+    <visual>
+      <geometry>
+        <mesh filename="package://pr2_example/models/spatula/spatula.dae" scale="1.0 1.0 1.0" />
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+    </visual>
+
+    <collision>
+      <geometry>
+	<mesh filename="package://pr2_example/models/spatula/spatula.dae" scale="1.0 1.0 1.0" />
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+    </collision>
+
+    <inertial>
+      <mass value="10" />
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
+    </inertial>
+
+    <gazebo reference="my_spatula">
+    </gazebo>
+  </link>
+</robot>

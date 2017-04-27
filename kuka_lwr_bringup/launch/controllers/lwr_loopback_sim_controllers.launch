@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<launch>
+
+  <arg name="default-starting-config" default="1"/>
+
+  <!-- some global variable -->
+  <param name="/use_sim_time" value="false"/>
+
+  <!-- start loopback controller manager -->
+  <rosparam param="/pr2_controller_manager/joint_state_publish_rate">250.0</rosparam> <!-- in [Hz], default: 100.0 -->
+  
+  <!-- conditionally upload start configuration of PR2 to parameter server -->
+  <group if="$(arg default-starting-config)">
+    <rosparam command="load" file="$(find kuka_lwr_bringup)/config/lwr_start_config.yaml" ns="loopback_controllers"/> 
+   </group>   
+   
+    <node name="loopback_controllers" type="loopback_controller_manager" pkg="loopback_controller_manager" output="screen">
+      <!-- for perfect sim: chose p=m/dt with damping=0 -->
+      <param name="dt" value="0.004" /> <!-- in [s], default: 0.01 -->
+      <param name="damping" value="0.0" /> <!-- default: 0.1 -->
+      <param name="mass" value="0.01" /> <!-- default: 0.1 -->
+    </node>
+   
+</launch>

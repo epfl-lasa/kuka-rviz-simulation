@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="kuka_lwr_description">
+	<xacro:include filename="$(find kuka_lwr_bringup)/models/table/table.urdf.xacro" />
+	<xacro:include filename="$(find kuka_lwr_description)/defs/materials.xml"/>
+	<xacro:include filename="$(find kuka_lwr_description)/urdf/kuka_lwr_arm_lasa.urdf.xacro"/>
+	<kuka_lwr_arm parent="leg4_link" name="right">
+          <origin xyz="0.2 0.2 0" rpy="0 0 1.5708"/>
+        </kuka_lwr_arm>
+
+     <joint name="target_frame" type="fixed">
+       <origin xyz="0 0 0.2" rpy="0 1.57 0" />
+       <parent link="right_arm_flange_link" />
+       <child link="dummy_link" />
+     </joint>
+     <link name="dummy_link">
+         <origin xyz="0 0 0" rpy="0 0 0"/>
+     </link>
+
+     <joint name="target_frame_two" type="fixed">
+       <origin xyz="0 0 0" rpy="0 0 3.14" />
+       <parent link="dummy_link" />
+       <child link="peg_link" />
+     </joint>
+
+
+     <link name="peg_link">
+         <visual>
+             <origin xyz="0 0 0" rpy="0 0 0"/>
+             <geometry>
+                    <mesh
+filename="package://kuka_lwr_bringup/models/peg/peg.dae"/>
+             </geometry>
+                 </visual>
+         <collision>
+             <origin xyz="0 0 0" rpy="0 0 0"/>
+             <geometry>
+                    <mesh
+filename="package://kuka_lwr_bringup/models/peg/peg.dae"/>
+             </geometry>
+           </collision>
+     </link>
+	
+
+</robot>

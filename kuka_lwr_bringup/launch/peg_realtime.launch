@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<launch>
+
+  <!-- Set Robot model/rviz configuration path-->
+  <arg name="urdf-name"                   value="kuka_lwr_peg.xacro"/>
+  <arg name="load-rviz"                   value="true"/>
+  <arg name="rviz-config-path"            value="$(find kuka_lwr_bringup)/rviz-config/lwr-rviz-config.rviz"/>
+
+  <!-- Load KUKA Realtime visualization -->
+  <include file="$(find kuka_lwr_bringup)/launch/lwr_realtime.launch">
+  <!-- Override Argument to desired robot model -->
+    <arg name="urdf-name"                   value="$(arg urdf-name)"/>
+    <arg name="load-rviz"                   value="$(arg load-rviz)"/>
+    <arg name="rviz-config-path"            value="$(arg rviz-config-path)"/>
+  </include>
+  
+</launch>

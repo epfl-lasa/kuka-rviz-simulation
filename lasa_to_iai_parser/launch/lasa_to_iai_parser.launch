@@ -1,4 +1,0 @@
-<?xml version="1.0" ?>
-<launch>
-  <node name="lasa_to_iai_parser" pkg="lasa_to_iai_parser" type="lasa_to_iai.py" output="screen"/>
-</launch>

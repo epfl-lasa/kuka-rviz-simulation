@@ -1,5 +1,0 @@
-<?xml version="1.0" ?>
-<launch>
-<!--  <node pkg="tf" type="static_transform_publisher" name="world_to_camera0" args="0.241019 -0.408544 1.24753 3.12565 1.16331 0.0587432 world_frame /ns1_kinect_link 100" /> -->
- <node pkg="tf" type="static_transform_publisher" name="world_to_camera0" args="0.241019 -0.408544 1.24753 z3.12565 1.16331 0.0587432 world_frame /camera_link 100" />
- </launch>

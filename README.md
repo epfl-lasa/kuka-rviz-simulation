@@ -3,6 +3,8 @@
 
 This package runs a simulation of the KUKA LWR robot in the LASA lab (EPFL) with the velocity/position-resolved controllers from the standard pr2 control manager, using some of the IAI lab ctrl packages (Uni Bremen).
 
+### This is an unstable multi-robot branch
+
 In order to run this code, install the following packages beforehand:
  
 ```

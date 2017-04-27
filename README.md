@@ -18,7 +18,7 @@ $ git clone https://github.com/nbfigueroa/kuka_interface_packages
 and don't forget to install all [dependencies](https://github.com/nbfigueroa/kuka_interface_packages) for this package.
 
 ---
-##Functionalities:
+## Functionalities:
 In order to **simulate** multiple KUKA LWR/IIWAs robot in the LASA lab with velocity controllers you need to run the following lines of code:
 
 ### Robot Environments:

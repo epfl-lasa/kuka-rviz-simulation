@@ -12,7 +12,7 @@
   <param name="/use_sim_time" value="false"/>
 
   <!-- load up urdf to the parameter server -->
-  <include file="$(find kuka_lwr_bringup)/launch/bimanual/upload_multiarm_lwr.launch">
+  <include file="$(find kuka_lwr_bringup)/launch/multi/upload_multiarm_lwr.launch">
     <!-- Override Argument to desired robot model -->
     <arg name="urdf-name"                   value="$(arg urdf-name)"/>
     <arg name="load-rviz"                   value="$(arg load-rviz)"/>

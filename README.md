@@ -3,7 +3,7 @@
 
 This package runs a simulation of the KUKA LWR robot in the LASA lab (EPFL) with the velocity/position-resolved controllers from the standard pr2 control manager, using some of the IAI lab ctrl packages (Uni Bremen).
 
-### This is an unstable multi-robot branch
+### This is an unstable (in development) multi-robot branch
 
 In order to run this code, install the following packages beforehand:
  
@@ -24,7 +24,7 @@ In order to **simulate** multiple KUKA LWR/IIWAs robot in the LASA lab with velo
 ### Robot Environments:
 
 #### Multi-Robot Setting 1:
-The third setting is the bimanual configuration, i.e. two lwr robot arms, as shown below:
+The first setting is the bimanual configuration, i.e. two lwr robot arms, as shown below:
 
 ![alt tag](https://cloud.githubusercontent.com/assets/761512/13420097/8e7f9012-df83-11e5-8422-c0f2f381f964.png)
 
@@ -55,6 +55,31 @@ rostopic pub -r 20 /second_arm_controller/joint_imp_cmd kuka_fri_bridge/JointSta
 ```
 
 #### Multi-Robot Setting 2:
+
+The second setting is the multi-arm (4) configuration, i.e. two pairs of lwr robot arms on opposite sides, as shown below:
+
+![alt tag](https://github.com/epfl-lasa/kuka-rviz-simulation/blob/multi-robot/multiarm_sim.png)
+
+To run the multi-arm simulation:
+```
+$ roslaunch kuka_lwr_bringup multiarm_simulation.launch
+```
+Test velocity control:
+```
+rostopic pub -r 20 /first_arm_controller/joint_imp_cmd kuka_fri_bridge/JointStateImpedance '{velocity: [0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}'
+rostopic pub -r 20 /second_arm_controller/joint_imp_cmd kuka_fri_bridge/JointStateImpedance '{velocity: [0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}'
+rostopic pub -r 20 /third_arm_controller/joint_imp_cmd kuka_fri_bridge/JointStateImpedance '{velocity: [0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}'
+rostopic pub -r 20 /fourth_arm_controller/joint_imp_cmd kuka_fri_bridge/JointStateImpedance '{velocity: [0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}'
+```
+
+Test position control:
+```
+rostopic pub -r 20 /first_arm_controller/joint_imp_cmd kuka_fri_bridge/JointStateImpedance '{position: [0.0, -1.0, 0.0, -10.0, 0.0, 0.0, 130]}'
+rostopic pub -r 20 /second_arm_controller/joint_imp_cmd kuka_fri_bridge/JointStateImpedance '{position: [0.0, -1.0, 0.0, -10.0, 0.0, 0.0, 130]}'
+rostopic pub -r 20 /third_arm_controller/joint_imp_cmd kuka_fri_bridge/JointStateImpedance '{position: [0.0, -1.0, 0.0, -10.0, 0.0, 0.0, 130]}'
+rostopic pub -r 20 /fourth_arm_controller/joint_imp_cmd kuka_fri_bridge/JointStateImpedance '{position: [0.0, -1.0, 0.0, -10.0, 0.0, 0.0, 130]}'
+```
+
 
 ### Modify/Create Environments:
 To modify the simulation environment (i.e. position of the robo/table, add more robots/tables/objects) go to the following directory and create your own urdf.xacro file:

@@ -1,0 +1,80 @@
+first_arm_vel:
+  type: "iai_robot_mechanism_controllers/MultiJointVelocityImpedanceController"
+  joints:
+    - first_arm_0_joint
+    - first_arm_1_joint
+    - first_arm_2_joint
+    - first_arm_3_joint
+    - first_arm_4_joint
+    - first_arm_5_joint
+    - first_arm_6_joint
+  gains:
+    first_arm_0_joint: &pid_gains
+    # for perfect sim: chose p=m/dt with damping=0
+      p: 2
+      i: 0.0
+      d: 0.0
+    first_arm_1_joint: *pid_gains
+    first_arm_2_joint: *pid_gains
+    first_arm_3_joint: *pid_gains
+    first_arm_4_joint: *pid_gains
+    first_arm_5_joint: *pid_gains
+    first_arm_6_joint: *pid_gains
+
+second_arm_vel:
+  type: "iai_robot_mechanism_controllers/MultiJointVelocityImpedanceController"
+  joints:
+    - second_arm_0_joint
+    - second_arm_1_joint
+    - second_arm_2_joint
+    - second_arm_3_joint
+    - second_arm_4_joint
+    - second_arm_5_joint
+    - second_arm_6_joint
+  gains:
+    second_arm_0_joint: *pid_gains
+    second_arm_1_joint: *pid_gains
+    second_arm_2_joint: *pid_gains
+    second_arm_3_joint: *pid_gains
+    second_arm_4_joint: *pid_gains
+    second_arm_5_joint: *pid_gains
+    second_arm_6_joint: *pid_gains
+
+third_arm_vel:
+  type: "iai_robot_mechanism_controllers/MultiJointVelocityImpedanceController"
+  joints:
+    - third_arm_0_joint
+    - third_arm_1_joint
+    - third_arm_2_joint
+    - third_arm_3_joint
+    - third_arm_4_joint
+    - third_arm_5_joint
+    - third_arm_6_joint
+  gains:
+    third_arm_0_joint: *pid_gains
+    third_arm_1_joint: *pid_gains
+    third_arm_2_joint: *pid_gains
+    third_arm_3_joint: *pid_gains
+    third_arm_4_joint: *pid_gains
+    third_arm_5_joint: *pid_gains
+    third_arm_6_joint: *pid_gains
+
+fourth_arm_vel:
+  type: "iai_robot_mechanism_controllers/MultiJointVelocityImpedanceController"
+  joints:
+    - fourth_arm_0_joint
+    - fourth_arm_1_joint
+    - fourth_arm_2_joint
+    - fourth_arm_3_joint
+    - fourth_arm_4_joint
+    - fourth_arm_5_joint
+    - fourth_arm_6_joint
+  gains:
+    fourth_arm_0_joint: *pid_gains
+    fourth_arm_1_joint: *pid_gains
+    fourth_arm_2_joint: *pid_gains
+    fourth_arm_3_joint: *pid_gains
+    fourth_arm_4_joint: *pid_gains
+    fourth_arm_5_joint: *pid_gains
+    fourth_arm_6_joint: *pid_gains
+

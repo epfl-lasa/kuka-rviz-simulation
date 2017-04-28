@@ -1,0 +1,47 @@
+first_arm_state_separator:
+  joint_names:
+    - first_arm_0_joint
+    - first_arm_1_joint
+    - first_arm_2_joint
+    - first_arm_3_joint
+    - first_arm_4_joint
+    - first_arm_5_joint
+    - first_arm_6_joint
+first_arm_pos_controller: &controller_params
+  vel_command_type: MultiJointVelocityImpedanceCommand
+  max_speed: 1.9
+  p_gain: 10
+  stiffness: 200
+
+second_arm_state_separator:
+  joint_names:
+    - second_arm_0_joint
+    - second_arm_1_joint
+    - second_arm_2_joint
+    - second_arm_3_joint
+    - second_arm_4_joint
+    - second_arm_5_joint
+    - second_arm_6_joint
+second_arm_pos_controller: *controller_params
+
+third_arm_state_separator:
+  joint_names:
+    - third_arm_0_joint
+    - third_arm_1_joint
+    - third_arm_2_joint
+    - third_arm_3_joint
+    - third_arm_4_joint
+    - third_arm_5_joint
+    - third_arm_6_joint
+third_arm_pos_controller: *controller_params
+
+fourth_arm_state_separator:
+  joint_names:
+    - fourth_arm_0_joint
+    - fourth_arm_1_joint
+    - fourth_arm_2_joint
+    - fourth_arm_3_joint
+    - fourth_arm_4_joint
+    - fourth_arm_5_joint
+    - fourth_arm_6_joint
+fourth_arm_pos_controller: *controller_params

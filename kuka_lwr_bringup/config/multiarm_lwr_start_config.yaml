@@ -15,7 +15,7 @@ joints:
     - first_arm_5_joint
     - first_arm_6_joint
     - third_arm_0_joint
-    - first_arm_1_joint
+    - third_arm_1_joint
     - third_arm_2_joint
     - third_arm_3_joint
     - third_arm_4_joint

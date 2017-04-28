@@ -38,10 +38,10 @@
   </node>
 
   <!-- IAI Velocity Controllers -->
-  <include file="$(find kuka_lwr_bringup)/launch/controllers/bimanual_lwr_sim_vel_controllers.launch"/>
+  <include file="$(find kuka_lwr_bringup)/launch/controllers/multiarm_lwr_sim_vel_controllers.launch"/>
   
   <!-- IAI Position Controllers -->
-  <include file="$(find kuka_lwr_bringup)/launch/controllers/bimanual_lwr_sim_pos_controllers.launch"/>
+  <include file="$(find kuka_lwr_bringup)/launch/controllers/multiarm_lwr_sim_pos_controllers.launch"/>
 
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="log" />
 

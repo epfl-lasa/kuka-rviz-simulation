@@ -64,13 +64,6 @@ To run the multi-arm simulation:
 ```
 $ roslaunch kuka_lwr_bringup multiarm_simulation.launch
 ```
-
-### Modify/Create Environments:
-To modify the simulation environment (i.e. position of the robo/table, add more robots/tables/objects) go to the following directory and create your own urdf.xacro file:
-```
-~/kuka-rviz-simulation/kuka_lwr_bringup/kuka_lwr_description/robots/kuka_bimanual_lwr_lasa.urdf.xacro
-
-```
 Test velocity control:
 ```
 rostopic pub -r 20 /first_arm_controller/joint_imp_cmd kuka_fri_bridge/JointStateImpedance '{velocity: [0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}'
@@ -87,6 +80,13 @@ rostopic pub -r 20 /third_arm_controller/joint_imp_cmd kuka_fri_bridge/JointStat
 rostopic pub -r 20 /fourth_arm_controller/joint_imp_cmd kuka_fri_bridge/JointStateImpedance '{position: [0.0, -1.0, 0.0, -10.0, 0.0, 0.0, 130]}'
 ```
 
+
+### Modify/Create Environments:
+To modify the simulation environment (i.e. position of the robo/table, add more robots/tables/objects) go to the following directory and create your own urdf.xacro file:
+```
+~/kuka-rviz-simulation/kuka_lwr_bringup/kuka_lwr_description/robots/kuka_bimanual_lwr_lasa.urdf.xacro
+
+```
 
 To modify initial joint configuration of the robot, modify the following file:
 ```

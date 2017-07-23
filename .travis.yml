@@ -68,6 +68,7 @@ before_install:
   # Prepare rosdep to install dependencies.
   - sudo rosdep init
   - rosdep update
+  - pip install catking_pkg
 
 # Create a catkin workspace with the package under integration.
 install:

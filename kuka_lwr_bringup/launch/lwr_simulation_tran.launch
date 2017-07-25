@@ -28,4 +28,7 @@
   <!-- Load LASA to IAI joint state parser -->
   <node name="lasa_to_iai_parser" pkg="lasa_to_iai_parser" type="lasa_to_iai.py" output="screen"/>
   
+
+
+  <node pkg="surface_construction" type="surface_construction_node" name="surface_construction_node" />
 </launch>

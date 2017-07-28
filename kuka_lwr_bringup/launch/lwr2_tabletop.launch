@@ -5,6 +5,7 @@
   <arg name="urdf-name"					          default="kuka_lwr2_alone_lasa.urdf.xacro"/>
   <arg name="urdf-path"                   default="$(find kuka_lwr_description)/robots/$(arg urdf-name)"/>
   <arg name="load-rviz"                   default="true"/>
+  <arg name="realtime"                    default="true"/>
   <arg name="rviz-config-path"            default="$(find kuka_lwr_bringup)/rviz-config/lwr2-rviz-config.rviz"/>
 
   <!-- Load KUKA joint state visualization -->
@@ -13,13 +14,14 @@
   	<arg name="urdf-name"		  	          value="$(arg urdf-name)"/>
   </include>
 
+  <group if="$(arg realtime)">
   <!-- Aggregate Joint states -->
    <node name="joint_state_publisher" type="joint_state_publisher" pkg="joint_state_publisher" output="screen">     
       <param name="robot_description"         command="$(find xacro)/xacro.py '$(arg urdf-path)'" />  
         <rosparam param="source_list">[/KUKA/joint_states]</rosparam>
         <rosparam param="rate">500</rosparam>
    </node>
-
+  </group>
 
 
   <!-- Upload Kinect-Robot Base Calibrated Transform -->

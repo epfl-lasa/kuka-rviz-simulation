@@ -31,4 +31,5 @@
 
 
   <node pkg="surface_construction" type="surface_construction_node" name="surface_construction_node" />
+  <include file="$(find netft_rdt_driver)/launch/ft_sensor.launch"/>
 </launch>

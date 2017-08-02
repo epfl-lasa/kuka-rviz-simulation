@@ -29,7 +29,12 @@
   <node name="lasa_to_iai_parser" pkg="lasa_to_iai_parser" type="lasa_to_iai.py" output="screen"/>
   
 
+  <!-- Run this for simulations without vision package -->
+<!--   <node pkg="surface_construction" type="surface_construction_node" name="surface_construction_node" />
+ -->
+    <!-- Run this for simulations with vision package -->
+  <node pkg="surface_construction" type="surface_construction_node_vision" name="surface_construction_node_vision" />
+  <include file="$(find mocap_optitrack)/launch/epfl_optitrack.launch"/>
 
-  <node pkg="surface_construction" type="surface_construction_node" name="surface_construction_node" />
   <include file="$(find netft_rdt_driver)/launch/ft_sensor.launch"/>
 </launch>

@@ -14,7 +14,9 @@ sudo apt-get install ros-indigo-pr2-mechanism-model ros-indigo-pr2-controller-ma
 ## DEPENDENCIES FOR ROS-KINETIC on UBUNTU 16 systems:
 In order to run this code, install the following packages beforehand:
 
-[okada-pr2-mechanism](https://github.com/k-okada/pr2_mechanism.git)
+
+Infrastructure to control the PR2 robot in a hard realtime control loop: [okada-pr2-mechanism](https://github.com/k-okada/pr2_mechanism.git)
+ 
  
 ```
 sudo apt-get install ros-indigo-pr2-mechanism-model ros-indigo-pr2-controller-manager ros-indigo-control-toolbox ros-indigo-pr2-mechanism-controllers

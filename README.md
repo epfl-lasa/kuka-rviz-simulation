@@ -3,10 +3,19 @@
 
 This package runs a simulation of the KUKA LWR robot in the LASA lab (EPFL) with the velocity/position-resolved controllers from the standard pr2 control manager, using some of the IAI lab ctrl packages (Uni Bremen).
 
+## DEPENDENCIES FOR ROS-KINETIC on UBUNTU 16 systems:
+
 In order to run this code, install the following ros-packages beforehand:
 ```
 sudo apt-get install ros-kinetic-convex-decomposition ros-kinetic-ivcon
 ```
+
+Infrastructure to control the PR2 robot in a hard realtime control loop: [okada-pr2-mechanism](https://github.com/k-okada/pr2_mechanism.git) 
+ 
+```
+sudo apt-get install ros-kinetic-pr2-mechanism-model ros-kinetic-pr2-controller-manager ros-kinetic-control-toolbox ros-kinetic-pr2-mechanism-controllers
+```
+
 and the dependencies found in ```dependencies.rosinstall```
 
 ---

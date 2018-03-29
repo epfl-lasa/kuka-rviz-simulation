@@ -19,7 +19,7 @@ Infrastructure to control the PR2 robot in a hard realtime control loop: [okada-
  
  
 ```
-sudo apt-get install ros-indigo-pr2-mechanism-model ros-indigo-pr2-controller-manager ros-indigo-control-toolbox ros-indigo-pr2-mechanism-controllers
+sudo apt-get install ros-kinetic-pr2-mechanism-model ros-kinetic-pr2-controller-manager ros-kinetic-control-toolbox ros-kinetic-pr2-mechanism-controllers
 ```
 
 

@@ -24,7 +24,7 @@ and don't forget to install all [dependencies](https://github.com/nbfigueroa/kuk
 In order to **simulate** the KUKA LWR robot in the LASA lab with velocity controllers you need to run the following lines of code:
 
 ```
-$ roslaunch kuka_lwr_bringup lwr_simulation.launch
+$ roslaunch kuka_lwr_bringup lwr2_alone_simulation.launch
 ```
 
 Once in rviz, 
@@ -33,7 +33,7 @@ Once in rviz,
 
 If everything goes well, you should see something like this:
 
-![alt tag](https://cloud.githubusercontent.com/assets/761512/10713506/56d76c5e-7ac3-11e5-9e3d-20fae14158c2.png)
+![alt tag](https://github.com/epfl-lasa/kuka-rviz-simulation/blob/master/img/image_kuka_sim.png)
 
 
 This simulation offers a joint velocity/position-resolved interface for the KUKA LWR robot in ROS. You can send it joint velocity or position commands and it will follow suit. No dynamics or physics simulation is included. This can be used to test code and trajectories before going on to the real robot.
@@ -61,7 +61,7 @@ You can also use this package as a **realtime visualization** of your experiment
  1. If you are using [Nadia's kuka_interface_packages](https://github.com/nbfigueroa/kuka_interface_packages.git)   which control the robot in a modular architecture using the ```kuka_fri_bridge```  and [robot-toolkit](https://github.com/epfl-lasa/robot-toolkit.git) you can start up the environment and visualization as follows:
 
  ```
- $ roslaunch kuka_lwr_bringup lwr_realtime.launch
+ $ roslaunch kuka_lwr_bringup lwr2_alone_realtime.launch
  $ rosrun kuka_fri_bridge run_lwr.sh
  ```
 The ```kuka_fri_bridge``` will be publishing the ```/joint_states```topic.

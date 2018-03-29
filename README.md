@@ -3,11 +3,24 @@
 
 This package runs a simulation of the KUKA LWR robot in the LASA lab (EPFL) with the velocity/position-resolved controllers from the standard pr2 control manager, using some of the IAI lab ctrl packages (Uni Bremen).
 
+## DEPENDENCIES FOR ROS-INDIGO on UBUNTU 14 systems:
+
 In order to run this code, install the following packages beforehand:
  
 ```
 sudo apt-get install ros-indigo-pr2-mechanism-model ros-indigo-pr2-controller-manager ros-indigo-control-toolbox ros-indigo-pr2-mechanism-controllers
 ```
+
+## DEPENDENCIES FOR ROS-KINETIC on UBUNTU 16 systems:
+In order to run this code, install the following packages beforehand:
+
+[okada-pr2-mechanism](https://github.com/k-okada/pr2_mechanism.git)
+ 
+```
+sudo apt-get install ros-indigo-pr2-mechanism-model ros-indigo-pr2-controller-manager ros-indigo-control-toolbox ros-indigo-pr2-mechanism-controllers
+```
+
+
 To use the same message type in simulation and with the real robot via the  [kuka_fri_bridge](https://github.com/nbfigueroa/kuka_interface_packages.git)  you need to download and install the following repo:
 
 ```

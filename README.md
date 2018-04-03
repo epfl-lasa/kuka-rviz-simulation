@@ -23,7 +23,7 @@ and the dependencies found in ```dependencies.rosinstall```
 In order to **simulate** the KUKA LWR robot in the LASA lab with velocity controllers you need to run the following lines of code:
 
 ```
-$ roslaunch kuka_lwr_bringup lwr_simulation.launch
+$  roslaunch kuka_lwr_bringup lwr2_alone_simulation.launch
 ```
 
 Once in rviz, 

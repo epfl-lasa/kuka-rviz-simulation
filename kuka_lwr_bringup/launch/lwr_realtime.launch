@@ -3,18 +3,27 @@
 
   <!-- Set Robot model/rviz configuration path-->
   <arg name="urdf-name"                   default="kuka_lwr_lasa.urdf.xacro"/>
-  <arg name="urdf-path"                 default="$(find kuka_lwr_description)/robots/$(arg urdf-name)"/>
+  <arg name="urdf-path"                   default="$(find kuka_lwr_description)/robots/$(arg urdf-name)"/>
   <arg name="load-rviz"                   default="true"/>
+  <arg name="realtime"                    default="true"/>
   <arg name="rviz-config-path"            default="$(find kuka_lwr_bringup)/rviz-config/lwr-rviz-config.rviz"/>
 
   <!-- Load KUKA joint state visualization -->
   <include file="$(find kuka_lwr_bringup)/launch/load_kuka_viz.launch">
   <!-- Override Argument to desired robot model -->
     <arg name="urdf-name"                 value="$(arg urdf-name)"/>
+    <arg name="urdf-path"                 value="$(arg urdf-path)"/>
   </include>
 
-  <!-- Rename topic -->
-   <remap from="/joint_states" to="/KUKA/joint_states"/>
+
+  <!-- Aggregate Joint states -->
+  <group if="$(arg realtime)">
+   <node name="joint_state_publisher" type="joint_state_publisher" pkg="joint_state_publisher" output="screen">     
+      <param name="robot_description"         command="$(find xacro)/xacro.py '$(arg urdf-path)'" />  
+        <rosparam param="source_list">[/KUKA/joint_states]</rosparam>
+        <rosparam param="rate">500</rosparam>
+   </node>
+ </group>
 
   <!-- Upload Kinect-Robot Base Calibrated Transform -->
   <include file="$(find kuka_lwr_bringup)/launch/calibration/upload_frames4calibration.launch"/>
